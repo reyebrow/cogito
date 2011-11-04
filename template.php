@@ -8,7 +8,7 @@
 /**
  * Changes the default meta content-type tag to the shorter HTML5 version
  */
-function cognito_html_head_alter(&$head_elements) {
+function cogito_html_head_alter(&$head_elements) {
   $head_elements['system_meta_content_type']['#attributes'] = array(
     'charset' => 'utf-8'
   );
@@ -17,7 +17,7 @@ function cognito_html_head_alter(&$head_elements) {
 /**
  * Changes the search form to use the HTML5 "search" input attribute
  */
-function cognito_preprocess_search_block_form(&$vars) {
+function cogito_preprocess_search_block_form(&$vars) {
   $vars['search_form'] = str_replace('type="text"', 'type="search"', $vars['search_form']);
 }
 
@@ -26,7 +26,7 @@ function cognito_preprocess_search_block_form(&$vars) {
  * Lifted from Adaptivetheme for D7, full credit to Jeff Burnz
  * ref: http://drupal.org/node/887600
  */
-function cognito_preprocess_html(&$vars) {
+function cogito_preprocess_html(&$vars) {
   if (module_exists('rdf')) {
     $vars['doctype'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML+RDFa 1.1//EN">' . "\n";
     $vars['rdf']->version = 'version="HTML+RDFa 1.1"';
@@ -48,7 +48,7 @@ function cognito_preprocess_html(&$vars) {
  * @return
  *   A string containing the breadcrumb output.
  */
-function cognito_breadcrumb($vars) {
+function cogito_breadcrumb($vars) {
   $breadcrumb = $vars['breadcrumb'];
   // Determine if we are to display the breadcrumb.
   $show_breadcrumb = theme_get_setting('breadcrumb_display');

@@ -1,5 +1,5 @@
 <?php
-function cognito_form_system_theme_settings_alter(&$form, &$form_state) {
+function cogito_form_system_theme_settings_alter(&$form, &$form_state) {
 
   /**
    * Breadcrumb settings
