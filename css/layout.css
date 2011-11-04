@@ -1,0 +1,86 @@
+
+/* hide any HRs used in the layout, but show them in main content */
+hr,
+.ahem,
+#skip-link {
+  display: none;
+}
+#content hr {
+  display: block;
+}
+
+/* uncomment these color rules to make the layout easier to see */
+/*
+#main           { background: #ccc; }
+#content        { background: #eee; }
+#sidebar-first  { background: #ccf; }
+#sidebar-second { background: #fcc; }
+#navigation     { background: #ffc; }
+#header         { background: #cff; }
+#footer         { background: #cfc; }
+*/
+
+/* Holy Grail Layout ---------------------------------------------------------
+   ref: http://www.alistapart.com/articles/holygrail
+   This layout takes advantage of negative margins to float the sidebars to
+   either side of the main content. It also floats the navigation above the
+   content, but you could just as easily absolutely position it.
+   
+   LC stands for Left Column, RC for Right Column
+   
+   Obvously, this layout is for left-to-right languages. For a
+   right-to-left layout, just swap all the left and rights below.
+   */
+#page {
+  width: 960px;
+  margin: 0 auto;
+}
+#content,
+#navigation,
+#sidebar-first,
+#sidebar-second {
+  float: left;
+}
+.with-navigation #content,
+.with-navigation #sidebar-first,
+.with-navigation #sidebar-second {
+  margin-top: 3em;       /* NAV height */
+}
+#navigation {
+  height: 3em;           /* NAV height */
+  width: 100%;
+  margin-right: -100%;
+}
+#navigation h2 {
+  margin: 0;
+}
+#content {
+  width: 100%;
+  margin-right: -100%;
+}
+.sidebar-first #content .section {
+  padding-left: 200px;   /* LC width */
+}
+.sidebar-second #content .section {
+  padding-right: 160px;  /* RC width */
+}
+.two-sidebars #content .section {
+  padding-left: 200px;   /* LC width */
+  padding-right: 160px;  /* RC width */
+}
+#sidebar-first {
+  width: 200px;          /* LC width */
+  margin-right: -200px;
+}
+#sidebar-second {
+  float: right;
+  width: 160px;          /* RC width */
+  margin-left: -160px;   /* RC width */
+}
+#footer {
+  clear: both;
+}
+/* IE6 fix */
+* html #sidebar-first {
+  left: 160px;           /* RC width */
+}
