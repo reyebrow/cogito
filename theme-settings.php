@@ -1,9 +1,9 @@
 <?php
-function boron_form_system_theme_settings_alter(&$form, &$form_state) {
+function cognito_form_system_theme_settings_alter(&$form, &$form_state) {
 
   /**
    * Breadcrumb settings
-   * Copied from Zen
+   * Copied from Boron and previously from Zen
    */
   $form['breadcrumb'] = array(
    '#type' => 'fieldset',

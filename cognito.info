@@ -2,8 +2,8 @@
 ; Theme Info -----------------------------------------------------------------
 ; required information about the theme
 
-name = Boron
-description = Boron is a base theme for Drupal 7 which converts the core template files to HTML5 markup.
+name = Cognito
+description = Cognito is the RE foundation theme and is based on Boron which is a base theme for Drupal 7 which converts the core template files to HTML5 markup.
 core = 7.x
 engine = phptemplate
 
