@@ -83,3 +83,41 @@ function cogito_breadcrumb($vars) {
   // Otherwise, return an empty string.
   return '';
 }
+
+
+
+function cogito_foundation_sizer($num){
+	switch ($i) {
+    case 0:
+        echo "i equals 0";
+    case 1:
+        echo "i equals 1";
+    case 2:
+        echo "i equals 2";
+        
+    case 0:
+        echo "i equals 0";
+    case 1:
+        echo "i equals 1";
+    case 2:
+        echo "i equals 2";        
+        
+     case 0:
+        echo "i equals 0";
+    case 1:
+        echo "i equals 1";
+    case 2:
+        echo "i equals 2";       
+
+    case 0:
+        echo "i equals 0";
+    case 1:
+        echo "i equals 1";
+    case 2:
+        echo "i equals 2";
+        
+    default:
+    	return "four";
+}
+	
+}

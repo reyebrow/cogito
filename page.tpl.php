@@ -65,7 +65,19 @@
  * @see template_preprocess_page()
  * @see template_process()
  */
+
+
+/**
+ * WE need to do a little work to figure out the widths of things
+ */
+
+
+$3col_left = theme_get_setting('foo_example');
+
+
 ?>
+
+
 
 <div id="page" class="container">
 
@@ -96,11 +108,11 @@
           <div id="site-slogan"><?php print $site_slogan; ?></div>
         <?php endif; ?>
       </div> <!-- /#name-and-slogan -->
-    <?php endif; ?>
-
-    <?php print render($page['header']); ?>
-
-    <?php if ($main_menu): ?>
+    <?php endif; 
+    
+    print render($page['header']);
+    
+    if ($main_menu): ?>
       <p id="skip-link"><em><a href="#navigation">Skip to Navigation</a></em> &darr;</p>
     <?php endif; ?>
 
@@ -120,8 +132,18 @@
 
 
   <div id="main" class="row">
+  
+  
+    <?php if ($page['left_sidebar']): ?>
+      <aside id="left-sidebar" class="columns <?php print $lsb_size; ?>" role="complementary">
+        <?php print render($page['left_sidebar']); ?>
+     </aside> <!-- /.section, /#sidebar-first -->
+    <?php endif; ?>
+  
+  
+  
 
-    <div id="content" class="columns eight" role="main">
+    <div id="content" class="columns <?php print $content_size; ?>" role="main">
       <?php if ($page['highlighted']): ?>
         <div id="highlighted"><?php print render($page['highlighted']); ?></div>
       <?php endif; 
@@ -146,15 +168,11 @@
     </div> <!-- /.section, /#content -->
 
 
-    <?php if ($page['sidebar_first']): ?>
-      <aside id="sidebar-first" class="columns four" role="complementary">
-        <?php print render($page['sidebar_first']); ?>
-     </aside> <!-- /.section, /#sidebar-first -->
-    <?php endif; ?>
 
-    <?php if ($page['sidebar_second']): ?>
-      <aside id="sidebar-second" class="columns two" role="complementary">
-        <?php print render($page['sidebar_second']); ?>
+
+    <?php if ($page['right_sidebar']): ?>
+      <aside id="sidebar-right" class="columns <?php print $rsb_size; ?>" role="complementary">
+        <?php print render($page['right_sidebar']); ?>
       </aside> <!-- /.section, /#sidebar-second -->
     <?php endif; ?>
 
