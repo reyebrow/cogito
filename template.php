@@ -17,28 +17,21 @@ function cogito_html_head_alter(&$head_elements) {
 /**
  * Changes the search form to use the HTML5 "search" input attribute
  */
+
 function cogito_preprocess_search_block_form(&$vars) {
+
   $vars['search_form'] = str_replace('type="text"', 'type="search"', $vars['search_form']);
+  $vars['search_form'] = str_replace('class="form-submit"', 'class="form-submit button black"', $vars['search_form']);
 }
 
-/**
- * Uses RDFa attributes if the RDF module is enabled
- * Lifted from Adaptivetheme for D7, full credit to Jeff Burnz
- * ref: http://drupal.org/node/887600
- */
-function cogito_preprocess_html(&$vars) {
-  if (module_exists('rdf')) {
-    $vars['doctype'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML+RDFa 1.1//EN">' . "\n";
-    $vars['rdf']->version = 'version="HTML+RDFa 1.1"';
-    $vars['rdf']->namespaces = $vars['rdf_namespaces'];
-    $vars['rdf']->profile = ' profile="' . $vars['grddl_profile'] . '"';
-  } else {
-    $vars['doctype'] = '<!DOCTYPE html>' . "\n";
-    $vars['rdf']->version = '';
-    $vars['rdf']->namespaces = '';
-    $vars['rdf']->profile = '';
-  }
+function cogito_preprocess_block(&$vars) {
+kpr($vars);
 }
+
+function cogito_preprocess_page(&$vars) {
+kpr($vars);
+}
+
 
 /**
  * Return a themed breadcrumb trail.
@@ -87,37 +80,34 @@ function cogito_breadcrumb($vars) {
 
 
 function cogito_foundation_sizer($num){
-	switch ($i) {
-    case 0:
-        echo "i equals 0";
+	switch ($num) {
     case 1:
-        echo "i equals 1";
+        return "one";
     case 2:
-        echo "i equals 2";
-        
-    case 0:
-        echo "i equals 0";
-    case 1:
-        echo "i equals 1";
-    case 2:
-        echo "i equals 2";        
-        
-     case 0:
-        echo "i equals 0";
-    case 1:
-        echo "i equals 1";
-    case 2:
-        echo "i equals 2";       
-
-    case 0:
-        echo "i equals 0";
-    case 1:
-        echo "i equals 1";
-    case 2:
-        echo "i equals 2";
-        
+        return "two";
+    case 3:
+        return "three";
+    case 4:
+        return "four";
+    case 5:
+        return "five";        
+    case 6:
+        return "six";
+    case 7:
+        return "seven";
+    case 8:
+        return "eight";       
+    case 9:
+        return "nine";
+    case 10:
+        return "ten";
+    case 11:
+        return "eleven";
+    case 11:
+        return "twelve";  
+    //four is a nice small number that will still show something      
     default:
     	return "four";
-}
+	}
 	
 }

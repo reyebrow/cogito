@@ -45,8 +45,8 @@ function cogito_form_system_theme_settings_alter(&$form, &$form_state) {
   );
   
   $numbers = array(
-     '1' => t('One'),
-     '2' => t('Two'),
+     '1' => t('one'),
+     '2' => t('two'),
      '3' => t('three'),
      '4' => t('four'),
      '5' => t('five'),

@@ -66,31 +66,81 @@
  * @see template_process()
  */
 
-
+include_once('modals.php');
 /**
  * WE need to do a little work to figure out the widths of things
  */
 
+if ($page['right_sidebar'] && $page['left_sidebar']){
+	$cols = "3col";
+}
+elseif (!$page['right_sidebar'] && !$page['left_sidebar']){
+	$cols = "1col";
+}
+elseif ($page['left_sidebar']){
+	$cols = "2col_lsb";
+}
+elseif ($page['right_sidebar']){
+	$cols = "2col_rsb";
+}
+else {
+	$cols = "1col";
+}
 
-$3col_left = theme_get_setting('foo_example');
+//print "<div style='padding-top: 30px;'>$cols:".theme_get_setting('3col_right')."</div>";
 
+	switch ($cols) {
+    case "2col_rsb":
+    	$rsb_size = cogito_foundation_sizer(theme_get_setting('2col_rsb_right'));
+    	$lsb_size = "";
+    	$content_size = cogito_foundation_sizer(theme_get_setting('2col_rsb_center'));
+    	break;
+    case "2col_lsb":
+    	$rsb_size = "";
+    	$lsb_size = cogito_foundation_sizer(theme_get_setting('2col_lsb_left'));
+    	$content_size = cogito_foundation_sizer(theme_get_setting('2col_lsb_center'));
+    	break;
+    case "1col":
+    	$rsb_size = "";
+    	$lsb_size = "";
+    	$content_size = "twelve";
+    	break;
+    //four is a nice small number that will still show something      
+    default:
+    	$rsb_size = cogito_foundation_sizer(theme_get_setting('3col_right'));
+    	$lsb_size = cogito_foundation_sizer(theme_get_setting('3col_left'));
+    	$content_size = cogito_foundation_sizer(theme_get_setting('3col_center'));
+    	break;
+}
 
 ?>
+<?php if ( $is_front ): ?>
+		<script>
+		  jQuery(window).load(function() {
+		    jQuery('.view-frontpage-slideshow .view-content').orbit({
+		         animation: 'horizontal-push'
+		     });
+		     });
+		</script>
+<?php endif; ?>
 
 
 
 <div id="page" class="container">
 
-  <header id="header" role="banner" class="row">
 
+
+
+  <header id="header" role="banner" class="row">
+	<div class="columns twelve">
     <?php if ($logo): ?>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+      <a class="columns two" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
         <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
       </a>
     <?php endif; ?>
 
     <?php if ($site_name || $site_slogan): ?>
-      <div id="name-and-slogan">
+      <div id="name-and-slogan" class="columns ten">
         <?php if ($site_name): ?>
           <?php if ($title): ?>
             <div id="site-name"><strong>
@@ -103,7 +153,7 @@ $3col_left = theme_get_setting('foo_example');
           <?php endif;
           endif; 
           
-          
+ 
          if ($site_slogan): ?>
           <div id="site-slogan"><?php print $site_slogan; ?></div>
         <?php endif; ?>
@@ -113,17 +163,19 @@ $3col_left = theme_get_setting('foo_example');
     print render($page['header']);
     
     if ($main_menu): ?>
-      <p id="skip-link"><em><a href="#navigation">Skip to Navigation</a></em> &darr;</p>
+      <p id="skip-link" class="hide-on-desktops"><em><a href="#navigation">Skip to Navigation</a></em> &darr;</p>
     <?php endif; ?>
 
-
+ </div>
 </header> <!-- /.section, /#header -->
 
 
-    <?php if ($main_menu): ?>
+
+
+
+    <?php if ($page['nav']): ?>
       <nav id="navigation" role="navigation" class="row"><div class="section">
-        <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'clearfix')), 'heading' => array('text' => t('Main menu'), 'level' => 'h2', 'class' => array('element-invisible'))));  ?>
-        <?php print theme('links__system_secondary_menu', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary-menu', 'class' => array('links', 'clearfix')), 'heading' => array('text' => t('Secondary menu'), 'level' => 'h2', 'class' => array('element-invisible'))));  ?>
+      	<?php print render($page['nav']); ?>
       </div></nav> <!-- /.section, /#navigation -->
     <?php endif; ?>
 
@@ -144,30 +196,30 @@ $3col_left = theme_get_setting('foo_example');
   
 
     <div id="content" class="columns <?php print $content_size; ?>" role="main">
-      <?php if ($page['highlighted']): ?>
-        <div id="highlighted"><?php print render($page['highlighted']); ?></div>
-      <?php endif; 
-      if ($breadcrumb): ?>
-        <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-      <?php endif; 
-      print $messages; 
-      print render($title_prefix);
-      if ($title): ?>
-        <h1 class="title" id="page-title"><?php print $title; ?></h1>
-      <?php endif; 
-      print render($title_suffix);
-      if ($tabs): ?>
-        <div class="tabs"><?php print render($tabs); ?></div>
-      <?php endif; 
-      print render($page['help']); 
-      if ($action_links): ?>
-        <ul class="action-links"><?php print render($action_links); ?></ul>
-      <?php endif; 
-      print render($page['content']);
-      print $feed_icons; ?>
+    
+	      <?php if ($page['highlighted']): ?>
+	        <div id="highlighted"><?php print render($page['highlighted']); ?></div>
+	      <?php endif; 
+	      if ($breadcrumb): ?>
+	        <div id="breadcrumb panel"><?php print $breadcrumb; ?></div>
+	      <?php endif; 
+	      print $messages; 
+	      print render($title_prefix);
+	      if ($title): ?>
+	        <h1 class="title" id="page-title"><?php print $title; ?></h1>
+	      <?php endif; 
+	      print render($title_suffix);
+	      if ($tabs): ?>
+	        <div class="tabs"><?php print render($tabs); ?></div>
+	      <?php endif; 
+	      print render($page['help']); 
+	      if ($action_links): ?>
+	        <ul class="action-links"><?php print render($action_links); ?></ul>
+	      <?php endif; 
+	      print render($page['content']);
+	      print $feed_icons; ?>
+	      
     </div> <!-- /.section, /#content -->
-
-
 
 
     <?php if ($page['right_sidebar']): ?>
@@ -176,17 +228,17 @@ $3col_left = theme_get_setting('foo_example');
       </aside> <!-- /.section, /#sidebar-second -->
     <?php endif; ?>
 
-  </div></div> <!-- /#main, /#main-wrapper -->
+
+  </div> <!-- /#main, /#main-wrapper -->
   
   
   
-  
-  
-  
-  
-  
-  <footer id="footer" role="contentinfo" class="container"><div class="section row">
-    <?php print render($page['footer']); ?>
-  </div></footer> <!-- /.section, /#footer -->
+  <footer id="footer" role="contentinfo" class="container">
+	  <div class="section row">
+	    <?php print render($page['footer']); ?>
+	  </div>
+  </footer> <!-- /.section, /#footer -->
+
+
 
 </div> <!-- /#page, /#page-wrapper -->

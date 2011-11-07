@@ -32,9 +32,9 @@
  * @see template_preprocess_html()
  * @see template_process()
  */
-?><?php print $doctype; ?>
-<html lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>" <?php print $rdf->version . $rdf->namespaces; ?>>
-<head<?php print $rdf->profile; ?>>
+?>
+<html>
+<head>
 
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
