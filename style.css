@@ -189,31 +189,34 @@ h1, h2, h3, h4, h5, h6 {
 
 nav {
 	color: white;
-	background: #888;
-	font-weight: bold
+	background: black;
+	font-weight: bold;
+	font-size: 1.5em;
 }
 nav a{
 	color: white;
 }
 nav a.active{
-	color: blue;
+	color: #aaf;
 }
 
 
 .orbit > div.content {
-background: #eef;
-width: 800px;
-height: 300px;
+	background: #eef;
+	width: 800px;
+	height: 300px;
 }
 
 .orbit > div.content > img {
-position: absolute;
-z-index: 0;
+	position: absolute;
+	z-index: 0;
 }
 
 .orbit > div.content > h1 {
+	position: relative;
 }
 .orbit > div.content > h3 {
+	position: relative;
 }
 
 

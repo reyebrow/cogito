@@ -24,14 +24,9 @@ function cogito_preprocess_search_block_form(&$vars) {
   $vars['search_form'] = str_replace('class="form-submit"', 'class="form-submit button black"', $vars['search_form']);
 }
 
-function cogito_preprocess_block(&$vars) {
-kpr($vars);
+function cogito_preprocess_menu_link(&$vars) {
+	$vars['element']['#attributes']['class'][] = "button black";
 }
-
-function cogito_preprocess_page(&$vars) {
-kpr($vars);
-}
-
 
 /**
  * Return a themed breadcrumb trail.

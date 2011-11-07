@@ -103,7 +103,7 @@ else {
     case "1col":
     	$rsb_size = "";
     	$lsb_size = "";
-    	$content_size = "twelve";
+    	$content_size = "ten centered";
     	break;
     //four is a nice small number that will still show something      
     default:
