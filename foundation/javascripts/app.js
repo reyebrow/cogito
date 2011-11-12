@@ -1,11 +1,14 @@
-jQuery(document).ready(function() {
+(function ($) {
+
+  Drupal.behaviors.tabs = {
+    attach: function (context, settings) {
 
 	/* Use this js doc for all application specific JS */
 
 	/* TABS --------------------------------- */
 	/* Remove if you don't need :) */
 	
-/*
+
 	var tabs = $('dl.tabs');
 		tabsContent = $('ul.tabs-content')
 	
@@ -34,17 +37,12 @@ jQuery(document).ready(function() {
 			} 
 		});
 	});
-*/
+
+//	$('input, textarea').placeholder();
 	
 	
-	/* PLACEHOLDER FOR FORMS ------------- */
-	/* Remove this and jquery.placeholder.min.js if you don't need :) */
-	
-	//$('input, textarea').placeholder();
-	
-	
-	/* DISABLED BUTTONS ------------- */
-	/* Gives elements with a class of 'disabled' a return: false; */
-	
-	
-});
+    }
+  };
+
+}(jQuery));
+

@@ -187,20 +187,6 @@ h1, h2, h3, h4, h5, h6 {
 .container {
 }
 
-nav {
-	color: white;
-	background: black;
-	font-weight: bold;
-	font-size: 1.5em;
-}
-nav a{
-	color: white;
-}
-nav a.active{
-	color: #aaf;
-}
-
-
 .orbit > div.content {
 	background: #eef;
 	width: 800px;
@@ -219,5 +205,52 @@ nav a.active{
 	position: relative;
 }
 
+/******************************
 
+	SUPERFISH 
 
+******************************/
+nav{
+	background: black;
+}
+
+#superfish-1 {
+	color: white;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.sf-menu li:hover ul, .sf-menu li.sfHover ul {
+    left: 0;
+    top: 1.5em;
+}
+
+#superfish-1 li {
+	background: black;
+}
+
+#superfish-1 li a {
+	color: white;
+	padding: 5px 15px;
+	display: block;
+}
+#superfish-1 li a.active {
+	color: #ccf;
+	background: #333;
+}
+#superfish-1 li a:hover {
+	background: white;
+	color: black;
+}
+
+#superfish-1 ul li {
+
+}
+
+#superfish-1 ul li {
+
+}
+
+#superfish-1 ul li a {
+
+}

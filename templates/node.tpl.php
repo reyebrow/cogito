@@ -76,10 +76,10 @@
  * @see template_process()
  */
 ?>
-<article id="node-<?php print $node->nid; ?>" class="container <?php print $classes; ?>"<?php print $attributes; ?>>
+<article id="node-<?php print $node->nid; ?>" class=" <?php print $classes; ?>"<?php print $attributes; ?>>
 
   <?php if ($user_picture || !$page || $display_submitted): ?>
-    <header class="row">
+    <div class="node-header">
       <?php print $user_picture; ?>
 
       <?php print render($title_prefix); ?>
@@ -96,10 +96,10 @@
           ?>
         </p>
       <?php endif; ?>
-    </header>
+    </div>
   <?php endif; ?>
 
-  <div class="content row"<?php print $content_attributes; ?>>
+  <div class="content"<?php print $content_attributes; ?>>
     <?php
       // We hide the comments, tags and links now so that we can render them later.
       hide($content['comments']);
@@ -110,7 +110,7 @@
   </div> <!-- /.content -->
 
   <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>
-    <footer class="row">
+    <footer>
       <?php print render($content['field_tags']); ?>
       <?php print render($content['links']); ?>
     </footer>
