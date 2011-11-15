@@ -14,6 +14,54 @@ function cogito_html_head_alter(&$head_elements) {
   );
 }
 
+function cogito_preprocess_page(&$vars){
+  /**
+   * WE need to do a little work to figure out the widths of things
+   */
+   $page = &$vars['page'];
+  
+  if ($page['right_sidebar'] && $page['left_sidebar']){
+  	$cols = "3col";
+  }
+  elseif (!$page['right_sidebar'] && !$page['left_sidebar']){
+  	$cols = "1col";
+  }
+  elseif ($page['left_sidebar']){
+  	$cols = "2col_lsb";
+  }
+  elseif ($page['right_sidebar']){
+  	$cols = "2col_rsb";
+  }
+  else {
+  	$cols = "1col";
+  }
+  
+  	switch ($cols) {
+      case "2col_rsb":
+      	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('2col_rsb_right'));
+      	$vars['lsb_size'] = "";
+      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('2col_rsb_center'));
+      	break;
+      case "2col_lsb":
+      	$vars['rsb_size'] = "";
+      	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('2col_lsb_left'));
+      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('2col_lsb_center'));
+      	break;
+      case "1col":
+      	$vars['rsb_size'] = "";
+      	$vars['lsb_size'] = "";
+      	$vars['content_size'] = "ten centered";
+      	break;
+      //four is a nice small number that will still show something      
+      default:
+      	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('3col_right'));
+      	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('3col_left'));
+      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('3col_center'));
+      	break;
+  }
+}
+
+
 /**
  * Changes the search form to use the HTML5 "search" input attribute
  */
@@ -75,34 +123,6 @@ function cogito_breadcrumb($vars) {
 
 
 function cogito_foundation_sizer($num){
-	switch ($num) {
-    case 1:
-        return "one";
-    case 2:
-        return "two";
-    case 3:
-        return "three";
-    case 4:
-        return "four";
-    case 5:
-        return "five";        
-    case 6:
-        return "six";
-    case 7:
-        return "seven";
-    case 8:
-        return "eight";       
-    case 9:
-        return "nine";
-    case 10:
-        return "ten";
-    case 11:
-        return "eleven";
-    case 11:
-        return "twelve";  
-    //four is a nice small number that will still show something      
-    default:
-    	return "four";
-	}
-	
+  $nums = Array ("denada", "one","two", "three","four","five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve");
+	return $nums[$num];
 }

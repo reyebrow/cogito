@@ -16,28 +16,7 @@ div.foundation-header .subheader { margin-bottom: 9px; }
 div.highlight { margin-bottom: 12px; }
 
 img.beta { position: absolute; top: 0px; right: 0px; }
-
-/* Footer */
-footer.row {
-  margin-top: 80px;
-  border-top: solid 1px #e6e6e6;
-  padding-top: 20px; }
-footer.row h6 {
-  color: #6f6f6f;
-  font-size: 14px;
-  font-size: 1.4rem;
-  margin-bottom: 4px; }
-footer.row p {
-  color: #626262;
-  font-size: 12px;
-  font-size: 1.2rem;
-  line-height: 18px; }
-footer.row a {
-  color: #222222; }
-footer.row a:hover {
-  text-decoration: underline; }
   
-
 
 .row.display { background: #f4f4f4; margin-bottom: 10px; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
 .row.display .column, .row.display .columns { background: #e7e7e7; font-size: 11px; text-indent: 3px; padding-top: 6px; padding-bottom: 6px; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
@@ -181,10 +160,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Proxima", "Helvetica Neue", "Helvetica", Arial, sans-serif; }
 
 .columns {
-	background: #EEE;
+
 }
 
 .container {
+
+}
+.row {
+	background: #EEE;
 }
 
 .orbit > div.content {
