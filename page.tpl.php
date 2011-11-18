@@ -11,20 +11,8 @@
 
 include_once('modals.php');
 ?>
-<?php if ( $is_front ): ?>
-		<script>
-		  jQuery(window).load(function() {
-		    jQuery('.view-frontpage-slideshow .view-content').orbit({
-		         animation: 'horizontal-push'
-		     });
-		    });
-		</script>
-<?php endif; ?>
-
-
 
 <div id="page" class="container">
-
 
   <header id="header" role="banner" class="row">
     <?php if ($logo): ?>
@@ -69,6 +57,7 @@ include_once('modals.php');
 
   <div id="main" class="row">
   	<div class="columns eleven centered">
+  	
     <?php if ($page['left_sidebar']): ?>
       <aside id="left-sidebar" class="columns <?php print $lsb_size; ?>" role="complementary">
         <?php print render($page['left_sidebar']); ?>
@@ -84,11 +73,9 @@ include_once('modals.php');
 	        <div id="breadcrumb" class="twelve columns"><?php print $breadcrumb; ?></div>
 	      <?php endif; 
 	      print $messages; 
-	      print render($title_prefix);
 	      if ($title): ?>
 	        <h1 id="page-title"><?php print $title; ?></h1>
 	      <?php endif; 
-	      print render($title_suffix);
 	      if ($tabs): ?>
 	        <div class="drupal_tabs"><?php print render($tabs); ?></div>
 	      <?php endif; 

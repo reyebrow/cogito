@@ -37,6 +37,12 @@
 			} 
 		});
 	});
+	
+	
+		$('.alert-box .close').click(function() {
+			
+			$(this).parent('.alert-box').fadeTo("slow", 0).slideUp("slow");
+		});
 
 //	$('input, textarea').placeholder();
 	

@@ -79,7 +79,7 @@
 <article id="node-<?php print $node->nid; ?>" class=" <?php print $classes; ?>"<?php print $attributes; ?>>
 
   <?php if ($user_picture || !$page || $display_submitted): ?>
-    <div class="node-header">
+    <header class="node-header">
       <?php print $user_picture; ?>
 
       <?php print render($title_prefix); ?>
@@ -96,7 +96,7 @@
           ?>
         </p>
       <?php endif; ?>
-    </div>
+    </header>
   <?php endif; ?>
 
   <div class="content"<?php print $content_attributes; ?>>

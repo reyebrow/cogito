@@ -14,7 +14,16 @@ function cogito_html_head_alter(&$head_elements) {
   );
 }
 
+function cogito_preprocess_region(&$vars){
+
+}
+
 function cogito_preprocess_page(&$vars){
+	drupal_set_message(t('Dummy.'), "status");
+	drupal_set_message(t('Dummy.'), "warning");
+	drupal_set_message(t('Dummy.'), "error");
+	
+	kpr($vars);
   /**
    * WE need to do a little work to figure out the widths of things
    */
@@ -75,7 +84,7 @@ function cogito_preprocess_search_block_form(&$vars) {
 function cogito_preprocess_menu_link(&$vars) {
 	$vars['element']['#attributes']['class'][] = "button black";
 }
-
+	
 /**
  * Return a themed breadcrumb trail.
  *
@@ -120,6 +129,41 @@ function cogito_breadcrumb($vars) {
   return '';
 }
 
+
+function cogito_status_messages(&$variables){
+  $display = $variables['display'];
+  $output = '';
+
+  $status_heading = array(
+    'status' => t('Status message'), 
+    'error' => t('Error message'), 
+    'warning' => t('Warning message'),
+  );
+  
+  $equiv = Array(
+  'status' => 'success',
+  'warning' => 'warning',
+  'error' => 'error');
+  
+  foreach (drupal_get_messages($display) as $type => $messages) {
+    $output .= "<div class=\"messages alert-box $equiv[$type]\">\n";
+    if (!empty($status_heading[$type])) {
+      $output .= '<h2 class="element-invisible">' . $status_heading[$type] . "</h2>\n";
+    }
+    if (count($messages) > 1) {
+      $output .= " <ul>\n";
+      foreach ($messages as $message) {
+        $output .= '  <li>' . $message . "</li>\n";
+      }
+      $output .= " </ul>\n";
+    }
+    else {
+      $output .= $messages[0];
+    }
+    $output .= "<a href=\"#\" class=\"close\">&times;</a></div>\n";
+  }
+  return $output;
+}
 
 
 function cogito_foundation_sizer($num){
