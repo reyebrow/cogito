@@ -50,6 +50,6 @@
   <?php endif;?>
   <?php print render($title_suffix); ?>
 
-    <?php print $content ?>
+  <?php print $content ?>
 
 </<?php print $tag; ?>> <!-- /.block -->
