@@ -1,0 +1,29 @@
+
+; Theme Info -----------------------------------------------------------------
+; required information about the theme
+
+name = Cogito Child STARTER THEME
+description = Cogito is the RE foundation theme and is based on Boron which is a base theme for Drupal 7 which converts the core template files to HTML5 markup.
+base theme = cogito
+core = 7.x
+engine = phptemplate
+
+; Stylesheets  ---------------------------------------------------------------
+; We use [screen] instead of [all] to avoid browser styles affecting
+; other media types. IE stylesheets are loaded through template.php
+
+stylesheets[screen][] = style.css
+
+; Regions --------------------------------------------------------------------
+; these content regions are available for block placement
+; some are special hidden regions: page_top, page_bottom, and help
+
+; these are the stock regions
+regions[header] = Header
+regions[footer] = Footer
+regions[content] = Content
+regions[highlighted] = Highlighted
+regions[left_sidebar] = Left Sidebar
+regions[right_sidebar] = Right Sidebar
+regions[nav] = Navigation
+regions[help] = Help
