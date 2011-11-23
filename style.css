@@ -1,6 +1,15 @@
 body.admin-menu {
 margin-top: 0px !important;
 }
+
+aside h2{
+  font-size: 1.5em;
+}
+#content h2{
+  font-size: 2em;
+}
+
+
 body{
 padding-top: 20px !important;
 }
@@ -8,11 +17,13 @@ padding-top: 20px !important;
 	background: #EEE;
 }
 
+#main {
+  padding-top: 1.5em;
+}
 
 nav .block-superfish{
   width: 100%;
   background: #656565;
-  margin-bototm: 1em;
 }
 nav .sf-menu.sf-style-default {
   margin-bottom: 0px;
@@ -33,3 +44,4 @@ nav .sf-menu.sf-style-default a:hover,
 nav .sf-menu.sf-style-default a:active {
   background: #aaa;
 }
+

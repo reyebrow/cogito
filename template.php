@@ -293,3 +293,19 @@ function cogito_pager($variables) {
     ));
   }
 }
+
+/**
+ * Use Foundation Buttons
+ */
+function cogito_button($variables) {
+  $element = $variables['element'];
+  $element['#attributes']['type'] = 'submit';
+  element_set_attributes($element, array('id', 'name', 'value'));
+
+  $element['#attributes']['class'][] = 'form-' . $element['#button_type'];
+  if (!empty($element['#attributes']['disabled'])) {
+    $element['#attributes']['class'][] = 'form-button-disabled';
+  }
+    $element['#attributes']['class'][] = 'nice small button black';
+  return '<input' . drupal_attributes($element['#attributes']) . ' />';
+}
