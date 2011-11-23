@@ -83,7 +83,7 @@ settings[3col_left] 	= 3
 settings[3col_center]	= 6
 settings[3col_right]	= 3
 
-settings[2col_rsb_right] 	= 3
+settings[2col_rsb_right] 	  = 3
 settings[2col_rsb_center] 	= 9
-settings[2col_lsb_left] 	= 3
+settings[2col_lsb_left]     = 3
 settings[2col_lsb_center] 	= 9

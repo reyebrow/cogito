@@ -25,12 +25,12 @@ function cogito_preprocess_block(&$vars){
 }
 
 function cogito_preprocess_page(&$vars){
-/*
+
 	drupal_set_message(t('Dummy.'), "status");
 	drupal_set_message(t('Dummy.'), "warning");
 	drupal_set_message(t('Dummy.'), "error");
 	
-*/
+
 
   /**
    * WE need to do a little work to figure out the widths of things
