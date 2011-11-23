@@ -298,14 +298,19 @@ function cogito_pager($variables) {
  * Use Foundation Buttons
  */
 function cogito_button($variables) {
-  $element = $variables['element'];
-  $element['#attributes']['type'] = 'submit';
-  element_set_attributes($element, array('id', 'name', 'value'));
+  $variables['element']['#attributes']['class'][] = 'nice small button black';
+  return theme_button($variables);
+}
 
-  $element['#attributes']['class'][] = 'form-' . $element['#button_type'];
-  if (!empty($element['#attributes']['disabled'])) {
-    $element['#attributes']['class'][] = 'form-button-disabled';
-  }
-    $element['#attributes']['class'][] = 'nice small button black';
-  return '<input' . drupal_attributes($element['#attributes']) . ' />';
+
+function cogito_form($variables) {
+  $variables['element']['#attributes']['class'][] = 'nice';
+  return theme_form($variables);
+  
+}
+
+//Not working yet: need to add input-text class to all relevant inputs
+function cogito_form_element($variables) {
+  kpr($variables);
+  //return theme_form_element($variables);
 }
