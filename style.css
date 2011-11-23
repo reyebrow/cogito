@@ -25,3 +25,11 @@ nav .sf-menu.sf-style-default a, .sf-menu.sf-style-default a:visited {
   color: #fff;
   font-weight: bold;
 }
+
+nav .sf-menu.sf-style-default li:hover, 
+nav .sf-menu.sf-style-default li.sfhover, 
+nav .sf-menu.sf-style-default a:focus, 
+nav .sf-menu.sf-style-default a:hover, 
+nav .sf-menu.sf-style-default a:active {
+  background: #aaa;
+}
