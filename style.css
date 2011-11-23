@@ -45,3 +45,18 @@ nav .sf-menu.sf-style-default a:active {
   background: #aaa;
 }
 
+/****************************
+    Grid-y junk so you can see
+    where stuff lives
+****************************/
+
+.block{
+  border: 2px dashed #ccc;
+} 
+
+.row {
+  border: 1px solid #ccc;
+}
+.columns {
+  background: #ddd;
+}
