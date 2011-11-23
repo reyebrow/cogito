@@ -14,8 +14,14 @@ function cogito_html_head_alter(&$head_elements) {
   );
 }
 
-function cogito_preprocess_region(&$vars){
 
+function cogito_preprocess_block(&$vars){
+  $region_orient = theme_get_setting('region');
+  $region = $vars['elements']['#block']->region;
+  $orientation = $region_orient[$region];
+  if ($orientation == "h"){
+    $vars['classes_array'][] = "columns";
+  }
 }
 
 function cogito_preprocess_page(&$vars){
@@ -25,7 +31,7 @@ function cogito_preprocess_page(&$vars){
 	drupal_set_message(t('Dummy.'), "error");
 	
 */
-	//kpr($vars);
+
   /**
    * WE need to do a little work to figure out the widths of things
    */
@@ -70,6 +76,8 @@ function cogito_preprocess_page(&$vars){
       	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('3col_center'));
       	break;
   }
+  
+
 }
 
 
@@ -84,7 +92,7 @@ function cogito_preprocess_search_block_form(&$vars) {
 }
 
 function cogito_preprocess_menu_link(&$vars) {
-	$vars['element']['#attributes']['class'][] = "button black";
+	//$vars['element']['#attributes']['class'][] = "button black";
 }
 	
 /**

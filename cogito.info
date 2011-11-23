@@ -60,6 +60,16 @@ features[] = comment_user_picture
 features[] = comment_user_verification
 features[] = favicon
 
+; Regional block aligns (h for horizontal, v for vertical)
+settings[region][header]          = h
+settings[region][footer]          = h
+settings[region][content]         = v
+settings[region][highlighted]     = v
+settings[region][left_sidebar]    = v
+settings[region][right_sidebar]   = v
+settings[region][nav]             = h
+settings[region][help]            = v
+
 ; additional theme settings
 settings[breadcrumb_display]   = yes
 settings[breadcrumb_separator] = ' › '
@@ -67,6 +77,8 @@ settings[breadcrumb_home]      = 1
 settings[breadcrumb_trailing]  = 0
 settings[breadcrumb_title]     = 0
 
+
+; Region widths (rsb = right sidebar)
 settings[3col_left] 	= 3
 settings[3col_center]	= 6
 settings[3col_right]	= 3

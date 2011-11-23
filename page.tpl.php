@@ -14,6 +14,8 @@ include_once('modals.php');
 
 <div id="page" class="container">
 
+
+  <!-- Header -->
   <header id="header" role="banner" class="row">
     <?php if ($logo): ?>
       <a class="columns three" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
@@ -39,64 +41,68 @@ include_once('modals.php');
         <?php endif; ?>
         
     <?php endif; ?>
-    
+    <!-- Actual Header region -->
     <div class="columns four"><?php print render($page['header']) ?></div>
-    
     <?php if ($main_menu): ?>
       <p id="skip-link" class="hide-on-desktops"><em><a href="#navigation">Skip to Navigation</a></em> &darr;</p>
     <?php endif; ?>
   </header> <!-- /.section, /#header -->
 
 
+    <!-- Navigation -->
     <?php if ($page['nav']): ?>
-    <nav class="row">
-      	<?php print render($page['nav']); ?>
-    </nav>
+      <nav class="row">
+        	<?php print render($page['nav']); ?>
+      </nav>
     <?php endif; ?>
 
-
+  
   <div id="main" class="row">
   	<div class="columns eleven centered">
   	
-    <?php if ($page['left_sidebar']): ?>
-      <aside id="left-sidebar" class="columns <?php print $lsb_size; ?>" role="complementary">
-        <?php print render($page['left_sidebar']); ?>
-     </aside> <!-- /.section, /#sidebar-first -->
-    <?php endif; ?>
+    	
+    	<!-- Left Sidebar -->
+      <?php if ($page['left_sidebar']): ?>
+        <aside id="left-sidebar" class="columns <?php print $lsb_size; ?>" role="complementary">
+          <?php print render($page['left_sidebar']); ?>
+       </aside> <!-- /.section, /#sidebar-first -->
+      <?php endif; ?>
+    
+    
+    
+      <!-- Content Region -->
+      <div id="content" class="columns <?php print $content_size; ?>" role="main">
+  	      <?php if ($page['highlighted']): ?>
+  	        <?php print render($page['highlighted']); ?>
+  	      <?php endif; 
+  	      if ($breadcrumb): ?>
+  	        <div id="breadcrumb" class="twelve columns"><?php print $breadcrumb; ?></div>
+  	      <?php endif; 
+  	      print $messages; 
+  	      if ($title): ?>
+  	        <h1 id="page-title"><?php print $title; ?></h1>
+  	      <?php endif; 
+  	      if ($tabs): ?>
+  	        <div class="drupal_tabs"><?php print render($tabs); ?></div>
+  	      <?php endif; 
+  	      print render($page['help']); 
+  	      if ($action_links): ?>
+  	        <ul class="action-links"><?php print render($action_links); ?></ul>
+  	      <?php endif;
+  	      print $feed_icons; ?>
   
-
-    <div id="content" class="columns <?php print $content_size; ?>" role="main">
-	      <?php if ($page['highlighted']): ?>
-	        <?php print render($page['highlighted']); ?>
-	      <?php endif; 
-	      if ($breadcrumb): ?>
-	        <div id="breadcrumb" class="twelve columns"><?php print $breadcrumb; ?></div>
-	      <?php endif; 
-	      print $messages; 
-	      if ($title): ?>
-	        <h1 id="page-title"><?php print $title; ?></h1>
-	      <?php endif; 
-	      if ($tabs): ?>
-	        <div class="drupal_tabs"><?php print render($tabs); ?></div>
-	      <?php endif; 
-	      print render($page['help']); 
-	      if ($action_links): ?>
-	        <ul class="action-links"><?php print render($action_links); ?></ul>
-	      <?php endif;
-	      print $feed_icons; ?>
-
-     	<?php print render($page['content']);?>
-	    
-    </div> <!-- /.section, /#content -->
-
-
-    <?php if ($page['right_sidebar']): ?>
-      <aside id="sidebar-right" class="columns <?php print $rsb_size; ?>" role="complementary">
-        <?php print render($page['right_sidebar']); ?>
-      </aside> <!-- /.section, /#sidebar-second -->
-    <?php endif; ?>
-
-	</div>
+       	<?php print render($page['content']);?>
+      </div> <!-- /.section, /#content -->
+  
+    
+      <!-- Right Sidebar -->
+      <?php if ($page['right_sidebar']): ?>
+        <aside id="sidebar-right" class="columns <?php print $rsb_size; ?>" role="complementary">
+          <?php print render($page['right_sidebar']); ?>
+        </aside> <!-- /.section, /#sidebar-second -->
+      <?php endif; ?>
+  
+  	</div>
   </div> <!-- /#main, /#main-wrapper -->
   
   
