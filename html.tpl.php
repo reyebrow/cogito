@@ -36,8 +36,12 @@
 <html>
 <head>
 
+  <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
+  
   <?php print $styles; ?>
   <?php print $scripts; ?>
 </head>
