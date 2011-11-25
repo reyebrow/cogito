@@ -311,6 +311,6 @@ function cogito_form($variables) {
 
 //Not working yet: need to add input-text class to all relevant inputs
 function cogito_form_element($variables) {
-  kpr($variables);
-  //return theme_form_element($variables);
+  //kpr($variables);
+  return theme_form_element($variables);
 }
