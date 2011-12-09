@@ -79,11 +79,13 @@ settings[breadcrumb_title]     = 0
 
 
 ; Region widths (rsb = right sidebar)
-settings[3col_left] 	= 3
-settings[3col_center]	= 6
-settings[3col_right]	= 3
+settings[three_columns_left] 	  = 3
+settings[three_columns_content]	= 6
+settings[three_columns_right]	  = 3
 
-settings[2col_rsb_right] 	  = 3
-settings[2col_rsb_center] 	= 9
-settings[2col_lsb_left]     = 3
-settings[2col_lsb_center] 	= 9
+settings[two_columns_lsb_left] 	    = 3
+settings[two_columns_lsb_content] 	= 9
+settings[two_columns_rsb_right]     = 3
+settings[two_columns_rsb_content] 	= 9
+
+settings[one_column_content] 	= 10

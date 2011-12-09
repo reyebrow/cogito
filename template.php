@@ -55,30 +55,32 @@ function cogito_preprocess_page(&$vars){
   
   	switch ($cols) {
       case "2col_rsb":
-      	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('2col_rsb_right'));
+      	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_rsb_right'));
       	$vars['lsb_size'] = "";
-      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('2col_rsb_center'));
+      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_rsb_content'));
       	break;
       case "2col_lsb":
       	$vars['rsb_size'] = "";
-      	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('2col_lsb_left'));
-      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('2col_lsb_center'));
+      	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_lsb_left'));
+      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_lsb_content'));
       	break;
       case "1col":
       	$vars['rsb_size'] = "";
       	$vars['lsb_size'] = "";
-      	$vars['content_size'] = "ten centered";
+      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('one_column_content')) . " centered";
       	break;
       //four is a nice small number that will still show something      
       default:
-      	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('3col_right'));
-      	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('3col_left'));
-      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('3col_center'));
+      	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_right'));
+      	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_left'));
+      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_content'));
       	break;
   }
   
 
 }
+
+
 
 
 /**

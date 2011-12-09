@@ -79,7 +79,7 @@
 <article id="node-<?php print $node->nid; ?>" class=" <?php print $classes; ?>"<?php print $attributes; ?>>
 
   <?php if ($user_picture || !$page || $display_submitted): ?>
-    <header class="node-header">
+    <header class="entry-header">
       <?php print $user_picture; ?>
 
       <?php print render($title_prefix); ?>
@@ -99,7 +99,7 @@
     </header>
   <?php endif; ?>
 
-  <div class="content"<?php print $content_attributes; ?>>
+  <div class="entry-content"<?php print $content_attributes; ?>>
     <?php
       // We hide the comments, tags and links now so that we can render them later.
       hide($content['comments']);

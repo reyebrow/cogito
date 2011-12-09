@@ -2,24 +2,39 @@ body.admin-menu {
 margin-top: 0px !important;
 }
 
-aside h2{
+
+/* Just some general styling  */
+
+aside h3{  font-size: 1.2em;}
+#content h2{  font-size: 1.2em;}
+#content h1{  font-size: 2.5em;}
+
+
+body{	background: #EEE;}
+.row { background: #fff; }
+
+#main { padding-top: 1.5em; }
+
+
+
+#site-title{}
+
+#site-description {
   font-size: 1.5em;
+  font-style: italic;
 }
-#content h2{
-  font-size: 2em;
+
+#footer{
+  border-top: 1px solid #ccc;
+  padding: 15px 0 40px;
 }
 
 
-body{
-padding-top: 20px !important;
-}
-.row {
-	background: #EEE;
-}
+/**
+ * NAVIGATION STYLING
+ *
+ **/
 
-#main {
-  padding-top: 1.5em;
-}
 
 nav .block-superfish{
   width: 100%;
@@ -45,18 +60,3 @@ nav .sf-menu.sf-style-default a:active {
   background: #aaa;
 }
 
-/****************************
-    Grid-y junk so you can see
-    where stuff lives
-****************************/
-
-.block{
-  border: 2px dashed #ccc;
-} 
-
-.row {
-  border: 1px solid #ccc;
-}
-.columns {
-  background: #ddd;
-}

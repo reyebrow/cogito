@@ -12,58 +12,69 @@
 include_once('modals.php');
 ?>
 
-<div id="page" class="container">
+<div id="page" class="hfeed container" role="main">
 
 
   <!-- Header -->
-  <header id="header" role="banner" class="row">
-    <?php if ($logo): ?>
-      <a class="columns three" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-      </a>
-    <?php endif; ?>
+	<header id="branding" role="banner" class="row">
+	
+	
+	 <div class="eleven columns centered"><?php //This just gives a little room on the edges.?>
+	
+      <!-- TITLE / LOGO and DESCRIPTION -->
+			<hgroup class="columns eight">
+				<h1 id="site-title">
+            <?php if ($logo): ?>
+              <a class="columns three" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+                <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+              </a>
+            <?php endif; ?>
+           <?php if ($site_name): ?>
+            <?php if ($title): ?>
+              <div id="site-name" class="columns five"><strong>
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+              </strong></div>
+            <?php else: /* Use h1 when the content title is empty */ ?>
+              <h1 id="site-name">
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+              </h1>
+            <?php endif;
+              endif;?>
+				</h1>
+				<h4 id="site-description" class="subheader">
+				  <?php if ($site_slogan): ?>
+            <div id="site-slogan"><?php print $site_slogan; ?></div>
+          <?php endif; ?>
+				</h4>
+			</hgroup>
 
-    <?php if ($site_name || $site_slogan): ?>
-        <?php if ($site_name): ?>
-          <?php if ($title): ?>
-            <div id="site-name" class="columns five"><strong>
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-            </strong></div>
-          <?php else: /* Use h1 when the content title is empty */ ?>
-            <h1 id="site-name">
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-            </h1>
-          <?php endif;
-          endif; 
-         
-         if ($site_slogan): ?>
-          <div id="site-slogan"><?php print $site_slogan; ?></div>
+      <!-- Search Bar region -->
+      <div class="columns four"><?php print render($page['header']) ?></div>
+        <?php if ($main_menu): ?>
+        <p id="skip-link" class="hide-on-desktops"><em><a href="#navigation">Skip to Navigation</a></em> &darr;</p>
         <?php endif; ?>
-        
-    <?php endif; ?>
-    <!-- Actual Header region -->
-    <div class="columns four"><?php print render($page['header']) ?></div>
-    <?php if ($main_menu): ?>
-      <p id="skip-link" class="hide-on-desktops"><em><a href="#navigation">Skip to Navigation</a></em> &darr;</p>
-    <?php endif; ?>
+			</div>
+			
+      <!--MAIN MENU NAVBAR -->
+      <?php if ($page['nav']): ?>
+    		<nav id="access" role="navigation" class="row">
+            	<?php print render($page['nav']); ?>
+        </nav>
+      <?php endif; ?>
+			
+    </div><?php //This just gives a little room on the edges.?>
+
   </header> <!-- /.section, /#header -->
 
 
-    <!-- Navigation -->
-    <?php if ($page['nav']): ?>
-      <nav class="row">
-        	<?php print render($page['nav']); ?>
-      </nav>
-    <?php endif; ?>
-
-  
+  <!-- Main Row -->
   <div id="main" class="row">
-  	<div class="columns eleven centered">
+  	<div class="columns eleven centered"><?php //This just gives a little room on the edges.?>
   	
     	
     	<!-- Left Sidebar -->
       <?php if ($page['left_sidebar']): ?>
-        <aside id="left-sidebar" class="columns <?php print $lsb_size; ?>" role="complementary">
+        <aside id="sidebar-left" class="columns <?php print $lsb_size; ?>" role="complementary">
           <?php print render($page['left_sidebar']); ?>
        </aside> <!-- /.section, /#sidebar-first -->
       <?php endif; ?>
@@ -106,8 +117,11 @@ include_once('modals.php');
   </div> <!-- /#main, /#main-wrapper -->
   
   
+  <!-- Footer -->
   <footer id="footer" role="contentinfo" class="row">
+  	 <div class="eleven columns centered"><?php //This just gives a little room on the edges.?>
 	    <?php print render($page['footer']); ?>
+	   </div>
   </footer> <!-- /.section, /#footer -->
 
 

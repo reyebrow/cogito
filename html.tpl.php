@@ -35,9 +35,26 @@
 ?>
 <html>
 <head>
+    <meta charset="utf-8" />
 
-  <meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
+  	<!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="initial-scale=1.6; maximum-scale=1.0; width=device-width; "/>
+
+    <!-- Schema.org Description -->
+    <meta itemprop="name" content="">
+    <meta itemprop="description" content="">    
+    
+    <!-- Setting favicon and Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="<?php print path_to_theme();?>/images/misc/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="<?php print path_to_theme(); ?>/images/misc/favicon.ico">
+
+    <!-- Apple Developer Options -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    	
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+
 	
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
