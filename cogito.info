@@ -11,24 +11,16 @@ engine = phptemplate
 ; We use [screen] instead of [all] to avoid browser styles affecting
 ; other media types. IE stylesheets are loaded through template.php
 
-stylesheets[screen][] = css/globals.css
-stylesheets[screen][] = css/typography.css
-stylesheets[screen][] = css/grid.css
-stylesheets[screen][] = css/ui.css
-stylesheets[screen][] = css/forms.css
-stylesheets[screen][] = css/orbit.css
-stylesheets[screen][] = css/reveal.css
+stylesheets[screen][] = css/foundation.css
 stylesheets[screen][] = css/app.css
-stylesheets[screen][] = css/mobile.css
+stylesheets[screen][] = css/superfish.css
 stylesheets[screen][] = style.css
+
+;Ok, now let's kill some of Drupal's styles
 stylesheets[all][] = system.css
 stylesheets[all][] = system.theme.css
 
-scripts[] = js/jquery.reveal.js
-scripts[] = js/jquery.orbit-1.3.0.js
-scripts[] = js/forms.jquery.js
-scripts[] = js/jquery.customforms.js
-scripts[] = js/jquery.placeholder.min.js
+scripts[] = js/foundation.js
 scripts[] = js/app.js
 scripts[] = js/orbit-load.js
 

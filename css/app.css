@@ -1,3 +1,4 @@
+/* Foundation v2.1.2 http://foundation.zurb.com */
 /* Artfully masterminded by ZURB  */
 
 /* -------------------------------------------------- 
@@ -12,16 +13,27 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-
-
+/* How do you center floated elements? This is how. */
+.cogito_paginate{
+  clear: both;
+  width: 100%;
+  overflow: hidden;
+}
+.cogito_paginate ul{
+  float: left;
+  position: relative;
+  left: 50%;
+}
+.cogito_paginate ul li{
+  position: relative;
+  right: 50%;
+}
 
 
 
 /* -----------------------------------------
    Page Name 1
 ----------------------------------------- */
-
-
 
 
 
