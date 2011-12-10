@@ -26,9 +26,11 @@ function cogito_preprocess_block(&$vars){
 
 function cogito_preprocess_page(&$vars){
 
+/*
 	drupal_set_message(t('Dummy.'), "status");
 	drupal_set_message(t('Dummy.'), "warning");
 	drupal_set_message(t('Dummy.'), "error");
+*/
 	
 
 
@@ -258,8 +260,8 @@ function cogito_pager($variables) {
         }
         if ($i == $pager_current) {
           $items[] = array(
-            'class' => array('pager-current'), 
-            'data' => $i,
+            'class' => array('current'), 
+            'data' => theme('pager_previous', array('text' => $i, 'element' => $element, 'interval' => ($pager_current - $i), 'parameters' => $parameters)),
           );
         }
         if ($i > $pager_current) {
@@ -276,6 +278,7 @@ function cogito_pager($variables) {
         );
       }
     }
+    
     // End generation.
     if ($li_next) {
       $items[] = array(
@@ -289,10 +292,10 @@ function cogito_pager($variables) {
         'data' => $li_last,
       );
     }
-    return '<h2 class="element-invisible">' . t('Pages') . '</h2>' . theme('item_list', array(
+    return '<div class="row cogito_paginate"><h2 class="element-invisible">' . t('Pages') . '</h2>' . theme('item_list', array(
       'items' => $items, 
       'attributes' => array('class' => array('pagination')),
-    ));
+    )) . "</div>";
   }
 }
 

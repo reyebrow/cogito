@@ -20,18 +20,19 @@ include_once('modals.php');
 	
 	
 	 <div class="eleven columns centered"><?php //This just gives a little room on the edges.?>
-	
+    <div class="row">
       <!-- TITLE / LOGO and DESCRIPTION -->
 			<hgroup class="columns eight">
+
 				<h1 id="site-title">
             <?php if ($logo): ?>
-              <a class="columns three" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
                 <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
               </a>
             <?php endif; ?>
            <?php if ($site_name): ?>
             <?php if ($title): ?>
-              <div id="site-name" class="columns five"><strong>
+              <div id="site-name"><strong>
                 <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
               </strong></div>
             <?php else: /* Use h1 when the content title is empty */ ?>
@@ -55,14 +56,15 @@ include_once('modals.php');
         <?php endif; ?>
 			</div>
 			
+		</div>
+    </div><?php //This just gives a little room on the edges.?>
+
       <!--MAIN MENU NAVBAR -->
       <?php if ($page['nav']): ?>
     		<nav id="access" role="navigation" class="row">
             	<?php print render($page['nav']); ?>
         </nav>
       <?php endif; ?>
-			
-    </div><?php //This just gives a little room on the edges.?>
 
   </header> <!-- /.section, /#header -->
 

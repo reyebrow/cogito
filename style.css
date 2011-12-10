@@ -1,7 +1,9 @@
 body.admin-menu {
 margin-top: 0px !important;
+padding-top: 30px;
 }
-
+#page{
+}
 
 /* Just some general styling  */
 
@@ -34,29 +36,28 @@ body{	background: #EEE;}
  * NAVIGATION STYLING
  *
  **/
-
-
-nav .block-superfish{
-  width: 100%;
-  background: #656565;
-}
-nav .sf-menu.sf-style-default {
-  margin-bottom: 0px;
+nav.row{
+  background: #3c3c3c;
 }
 
-nav .sf-menu.sf-style-default li, .sf-menu.sf-style-default.sf-navbar {
-  background: #656565;
+/*** SUPERFISH SKIN ***/
+.sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+	color: #fff;
 }
-nav .sf-menu.sf-style-default a, .sf-menu.sf-style-default a:visited {
+.sf-menu li {
+	background: #3c3c3c;
+}
+.sf-menu li li {
+	background:		#969696;
+}
+.sf-menu li li a {
   color: #fff;
-  font-weight: bold;
 }
-
-nav .sf-menu.sf-style-default li:hover, 
-nav .sf-menu.sf-style-default li.sfhover, 
-nav .sf-menu.sf-style-default a:focus, 
-nav .sf-menu.sf-style-default a:hover, 
-nav .sf-menu.sf-style-default a:active {
-  background: #aaa;
+.sf-menu li li li {
+	background:		#a6a6a6;
 }
-
+.sf-menu li:hover, .sf-menu li.sfHover,
+.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+	background:		#3c3c3c;
+	outline:		0;
+}
