@@ -8,8 +8,6 @@
 
           <?php kpr(get_defined_vars());?>
  */
-
-include_once('modals.php');
 ?>
 
 <div id="page" class="hfeed container" role="main">
@@ -52,7 +50,7 @@ include_once('modals.php');
       <!-- Search Bar region -->
       <div class="columns four"><?php print render($page['header']) ?></div>
         <?php if ($main_menu): ?>
-        <p id="skip-link" class="hide-on-desktops"><em><a href="#navigation">Skip to Navigation</a></em> &darr;</p>
+        <p id="skip-link" class="hide-on-desktops"><em><a href="#access">Skip to Navigation</a></em> &darr;</p>
         <?php endif; ?>
 			</div>
 			
@@ -115,7 +113,7 @@ include_once('modals.php');
         </aside> <!-- /.section, /#sidebar-second -->
       <?php endif; ?>
   
-  	</div>
+  	</div> <!--eleven centered columns for spacing -->
   </div> <!-- /#main, /#main-wrapper -->
   
   
