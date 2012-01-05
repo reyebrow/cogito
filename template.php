@@ -26,14 +26,6 @@ function cogito_preprocess_block(&$vars){
 
 function cogito_preprocess_page(&$vars){
 
-/*
-	drupal_set_message(t('Dummy.'), "status");
-	drupal_set_message(t('Dummy.'), "warning");
-	drupal_set_message(t('Dummy.'), "error");
-*/
-	
-
-
   /**
    * WE need to do a little work to figure out the widths of things
    */
@@ -55,34 +47,32 @@ function cogito_preprocess_page(&$vars){
   	$cols = "1col";
   }
   
-  	switch ($cols) {
-      case "2col_rsb":
-      	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_rsb_right'));
-      	$vars['lsb_size'] = "";
-      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_rsb_content'));
-      	break;
-      case "2col_lsb":
-      	$vars['rsb_size'] = "";
-      	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_lsb_left'));
-      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_lsb_content'));
-      	break;
-      case "1col":
-      	$vars['rsb_size'] = "";
-      	$vars['lsb_size'] = "";
-      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('one_column_content')) . " centered";
-      	break;
-      //four is a nice small number that will still show something      
-      default:
-      	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_right'));
-      	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_left'));
-      	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_content'));
-      	break;
+  switch ($cols) {
+    case "2col_rsb":
+    	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_rsb_right'));
+    	$vars['lsb_size'] = "";
+    	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_rsb_content'));
+    	break;
+    case "2col_lsb":
+    	$vars['rsb_size'] = "";
+    	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_lsb_left'));
+    	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_lsb_content'));
+    	break;
+    case "1col":
+    	$vars['rsb_size'] = "";
+    	$vars['lsb_size'] = "";
+    	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('one_column_content')) . " centered";
+    	break;
+    //four is a nice small number that will still show something      
+    default:
+    	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_right'));
+    	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_left'));
+    	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_content'));
+    	break;
   }
   
 
 }
-
-
 
 
 /**
@@ -100,6 +90,7 @@ function cogito_preprocess_menu_link(&$vars) {
 }
 	
 /**
+ * Implements theme_breadcrumb().
  * Return a themed breadcrumb trail.
  *
  * @param $breadcrumb
@@ -143,7 +134,11 @@ function cogito_breadcrumb($vars) {
   return '';
 }
 
-
+/**
+ * Implements theme_status_messages().
+ *
+ * Squash drupal's status messages to fit with foundation
+ */
 
 function cogito_status_messages(&$variables){
   $display = $variables['display'];
@@ -181,13 +176,23 @@ function cogito_status_messages(&$variables){
 }
 
 
+/**
+ * Helper Function: You say "3", I say "three"
+ *
+ */
+
 function cogito_foundation_sizer($num){
   $nums = Array ("denada", "one","two", "three","four","five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve");
 	return $nums[$num];
 }
 
 
-
+/**
+ * Implements theme_pager().
+ *
+ * Drupal's pager system is terrible so this is a first stab at a rewrite.
+ * Basically we're squashing it into a shape that Foundation Pager likes
+ */
 
 function cogito_pager($variables) {
   $tags = $variables['tags'];
@@ -299,14 +304,23 @@ function cogito_pager($variables) {
   }
 }
 
+
 /**
- * Use Foundation Buttons
+ * Implements theme_button().
+ *
+ * This is how we force drupal to use Foundation's buttons
  */
 function cogito_button($variables) {
   $variables['element']['#attributes']['class'][] = 'nice small button black';
   return theme_button($variables);
 }
 
+
+/**
+ * Implements theme_form().
+ *
+ * Forcing Drupal to use foundation's "nice" forms elements
+ */
 
 function cogito_form($variables) {
   $variables['element']['#attributes']['class'][] = 'nice';
