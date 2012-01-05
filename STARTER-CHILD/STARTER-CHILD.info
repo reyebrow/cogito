@@ -16,7 +16,7 @@ stylesheets[screen][] = style.css
 
 ; Regions --------------------------------------------------------------------
 ; these content regions are available for block placement
-; some are special hidden regions: page_top, page_bottom, and help
+; some are special hidden regions: help
 
 ; these are the stock regions
 regions[header] = Header
@@ -27,3 +27,34 @@ regions[left_sidebar] = Left Sidebar
 regions[right_sidebar] = Right Sidebar
 regions[nav] = Navigation
 regions[help] = Help
+
+; additional theme settings
+settings[breadcrumb_display]   = yes
+settings[breadcrumb_separator] = ' › '
+settings[breadcrumb_home]      = 1
+settings[breadcrumb_trailing]  = 0
+settings[breadcrumb_title]     = 0
+
+; Regional block aligns (h for horizontal, v for vertical)
+; Set these to determine if blocks should stack or be inline
+settings[region][header]          = h
+settings[region][footer]          = h
+settings[region][content]         = v
+settings[region][highlighted]     = v
+settings[region][left_sidebar]    = v
+settings[region][right_sidebar]   = v
+settings[region][nav]             = h
+settings[region][help]            = v
+
+
+; Region widths (rsb = right sidebar)
+settings[three_columns_left] 	  = 3
+settings[three_columns_content]	= 6
+settings[three_columns_right]	  = 3
+
+settings[two_columns_lsb_left] 	    = 3
+settings[two_columns_lsb_content] 	= 9
+settings[two_columns_rsb_right]     = 3
+settings[two_columns_rsb_content] 	= 9
+
+settings[one_column_content] 	= 10

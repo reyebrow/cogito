@@ -5,6 +5,10 @@
  * Contains theme override functions and preprocess functions for the Boron theme.
  */
 
+/*****************************************************************************************************************************/
+/* WARNING!!!! NEVER CHANGE ANYTHING IN THIS FOLDER!!! USE A CHILD THEME! CHECK OUT "STARTER-CHILD" FOLDER FOR INSTRUCTIONS  */
+/*****************************************************************************************************************************
+
 /**
  * Changes the default meta content-type tag to the shorter HTML5 version
  */

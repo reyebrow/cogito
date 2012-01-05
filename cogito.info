@@ -28,7 +28,7 @@ scripts[] = js/orbit-load.js
 
 ; Regions --------------------------------------------------------------------
 ; these content regions are available for block placement
-; some are special hidden regions: page_top, page_bottom, and help
+; some are special hidden regions: help
 
 ; these are the stock regions
 regions[header] = Header
@@ -52,7 +52,16 @@ features[] = comment_user_picture
 features[] = comment_user_verification
 features[] = favicon
 
+; additional theme settings
+settings[breadcrumb_display]   = yes
+settings[breadcrumb_separator] = ' › '
+settings[breadcrumb_home]      = 1
+settings[breadcrumb_trailing]  = 0
+settings[breadcrumb_title]     = 0
+
+
 ; Regional block aligns (h for horizontal, v for vertical)
+; Set these to determine if blocks should stack or be inline
 settings[region][header]          = h
 settings[region][footer]          = h
 settings[region][content]         = v
@@ -61,13 +70,6 @@ settings[region][left_sidebar]    = v
 settings[region][right_sidebar]   = v
 settings[region][nav]             = h
 settings[region][help]            = v
-
-; additional theme settings
-settings[breadcrumb_display]   = yes
-settings[breadcrumb_separator] = ' › '
-settings[breadcrumb_home]      = 1
-settings[breadcrumb_trailing]  = 0
-settings[breadcrumb_title]     = 0
 
 
 ; Region widths (rsb = right sidebar)
