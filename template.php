@@ -35,16 +35,16 @@ function cogito_preprocess_page(&$vars){
    */
    $page = &$vars['page'];
   
-  if ($page['right_sidebar'] && $page['left_sidebar']){
+  if ($page['sidebar_second'] && $page['sidebar_first']){
   	$cols = "3col";
   }
-  elseif (!$page['right_sidebar'] && !$page['left_sidebar']){
+  elseif (!$page['sidebar_second'] && !$page['sidebar_first']){
   	$cols = "1col";
   }
-  elseif ($page['left_sidebar']){
+  elseif ($page['sidebar_first']){
   	$cols = "2col_lsb";
   }
-  elseif ($page['right_sidebar']){
+  elseif ($page['sidebar_second']){
   	$cols = "2col_rsb";
   }
   else {
