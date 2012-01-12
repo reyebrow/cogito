@@ -23,10 +23,12 @@ regions[header] = Header
 regions[footer] = Footer
 regions[content] = Content
 regions[highlighted] = Highlighted
-regions[left_sidebar] = Left Sidebar
-regions[right_sidebar] = Right Sidebar
+regions[sidebar_first] = Left Sidebar
+regions[sidebar_second] = Right Sidebar
 regions[nav] = Navigation
 regions[help] = Help
+regions[page_top] = Page Top
+regions[page_bottom] = Page Bottom
 
 ; additional theme settings
 settings[breadcrumb_display]   = yes
@@ -41,8 +43,8 @@ settings[region][header]          = h
 settings[region][footer]          = h
 settings[region][content]         = v
 settings[region][highlighted]     = v
-settings[region][left_sidebar]    = v
-settings[region][right_sidebar]   = v
+settings[region][sidebar_first]    = v
+settings[region][sidebar_second]   = v
 settings[region][nav]             = h
 settings[region][help]            = v
 

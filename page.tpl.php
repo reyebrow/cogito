@@ -73,9 +73,9 @@
   	
     	
     	<!-- Left Sidebar -->
-      <?php if ($page['left_sidebar']): ?>
+      <?php if ($page['sidebar_first']): ?>
         <aside id="sidebar-left" class="columns <?php print $lsb_size; ?>" role="complementary">
-          <?php print render($page['left_sidebar']); ?>
+          <?php print render($page['sidebar_first']); ?>
        </aside> <!-- /.section, /#sidebar-first -->
       <?php endif; ?>
     
@@ -107,9 +107,9 @@
   
     
       <!-- Right Sidebar -->
-      <?php if ($page['right_sidebar']): ?>
+      <?php if ($page['sidebar_second']): ?>
         <aside id="sidebar-right" class="columns <?php print $rsb_size; ?>" role="complementary">
-          <?php print render($page['right_sidebar']); ?>
+          <?php print render($page['sidebar_second']); ?>
         </aside> <!-- /.section, /#sidebar-second -->
       <?php endif; ?>
   
