@@ -255,7 +255,7 @@ function cogito_pager($variables) {
         );
       }
       // Now generate the actual pager piece.
-      for (; $i <= $pager_last && $i <= $pager_max; $i++) {
+      for ($i=1; $i <= $pager_last && $i <= $pager_max; $i++) {
         if ($i < $pager_current) {
           $items[] = array(
             'class' => array('pager-item'), 
@@ -265,7 +265,7 @@ function cogito_pager($variables) {
         if ($i == $pager_current) {
           $items[] = array(
             'class' => array('current'), 
-            'data' => theme('pager_previous', array('text' => $i, 'element' => $element, 'interval' => ($pager_current - $i), 'parameters' => $parameters)),
+            'data' => "<a href='#'>$i</a>", //First person to criticize this has to fix it. It's late and I can't figure it out.
           );
         }
         if ($i > $pager_current) {
@@ -282,6 +282,7 @@ function cogito_pager($variables) {
         );
       }
     }
+
     
     // End generation.
     if ($li_next) {
