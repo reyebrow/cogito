@@ -1,72 +1,100 @@
-
-
-
 /*****************************************************************************************************************************
+    
+    COGITO Wireframe Theme: 
+    
+    Basically just a few lines of presentation on top of Foundation.css to bridge the gap between
+    foundation and drupal CSS.
+
+
     WARNING!!!! WE RECOMMEND THAT YOU NOT CHANGE ANYTHING IN THIS FILE OR EVEN THIS FOLDER!!! 
     USE A CHILD THEME! CHECK OUT README.TXT AND "STARTER-CHILD" FOLDER FOR INSTRUCTIONS  
 *****************************************************************************************************************************/
 
 
-/* Just some general styling  */
+/* -----------------------------------------
+   Global CSS for Cogito
+----------------------------------------- */
+body {  background: #EEE;  padding-bottom: 60px; }
+.row {  background: #fff; }
 
-body.admin-menu {
-margin-top: 0px !important;
-padding-top: 30px;
+h1, h2, h3, h4, h5, h6 { font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif; }
+
+/* -----------------------------------------
+   Drupal Regions
+----------------------------------------- */
+
+div.highlight { margin-bottom: 12px; }
+
+/* -----------------------------------------
+   Breadcrumbs
+----------------------------------------- */
+
+#breadcrumb-row {
+  padding-bottom: 18px;
 }
-#page{
+#breadcrumb-row #breadcrumb {
+  padding: 7px 14px;
+  text-shadow: 0 1px 0 #ffffff;
+  background-color: #f5f5f5;
+}
+#breadcrumb .divider {
+  padding: 0 5px;
+  color: #bfbfbf;
+}
+#breadcrumb .active a {
+  color: #404040;
 }
 
-/* Just some general styling  */
+/* -----------------------------------------
+   Main
+----------------------------------------- */
 
-aside h3{  font-size: 1.2em;}
-#content h2{  font-size: 1.2em;}
-#content h1{  font-size: 2.5em;}
-
-
-body{	background: #EEE;}
-.row { background: #fff; }
-
-#main { padding-top: 1.5em; }
-
-
-
-#site-title{}
-
-#site-description {
-  font-size: 1.5em;
-  font-style: italic;
+#main {
+  padding-top:20px;
 }
 
-#footer{
-  border-top: 1px solid #ccc;
-  padding: 15px 0 40px;
+#main h1 {
+  line-height: 1em;
+}
+#main h2{
+  font-size:2em;
+}
+#main h3{
+  font-size:1.2em;
+}
+#main h4 {
+  font-size:1em;
+  font-weight: bold;
 }
 
 
-/**
- * NAVIGATION STYLING
- *
- **/
-nav.row{
-  background: #3c3c3c;
-}
+/* -----------------------------------------
+   Navigation
+----------------------------------------- */
+
+#access{	background: #3c3c3c; }
 
 /*** SUPERFISH SKIN ***/
 .sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
 	color: #fff;
 }
+
 .sf-menu li {
 	background: #3c3c3c;
 }
+
 .sf-menu li li {
 	background:		#969696;
 }
+
 .sf-menu li li a {
   color: #fff;
 }
+
 .sf-menu li li li {
 	background:		#a6a6a6;
 }
+
 .sf-menu li:hover, .sf-menu li.sfHover,
 .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
 	background:		#3c3c3c;
