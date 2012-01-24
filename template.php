@@ -20,12 +20,7 @@ function cogito_html_head_alter(&$head_elements) {
 
 
 function cogito_preprocess_block(&$vars){
-  $region_orient = theme_get_setting('region');
-  $region = $vars['elements']['#block']->region;
-  $orientation = $region_orient[$region];
-  if ($orientation == "h"){
-    $vars['classes_array'][] = "columns";
-  }
+
 }
 
 function cogito_preprocess_page(&$vars){
