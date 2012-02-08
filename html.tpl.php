@@ -33,6 +33,7 @@
  * @see template_process()
  */
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -61,6 +62,12 @@
   
   <?php print $styles; ?>
   <?php print $scripts; ?>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
 
