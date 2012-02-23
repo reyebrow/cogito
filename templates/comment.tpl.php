@@ -86,9 +86,9 @@
     <?php if ($signature): ?>
       <div class="user-signature clearfix">
         <?php print $signature ?>
-      </div> <!-- /.user-signature -->
+      </div> <?php // /.user-signature  ?>
     <?php endif; ?>
-  </div> <!-- /.content -->
+  </div> <?php // /.content  ?>
 
   <?php if (!empty($content['links'])): ?>
     <footer>
@@ -96,4 +96,4 @@
     </footer>
   <?php endif; ?>
 
-</article> <!-- /.comment -->
+</article> <?php // /.comment  ?>

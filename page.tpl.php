@@ -13,13 +13,13 @@
 <div id="page" class="hfeed container" role="main">
 
 
-  <!-- Header -->
+  <?php // Header  ?>
 	<header id="branding" role="banner" class="row">
 	
 	
 	 <div class="eleven columns centered"><?php //This just gives a little room on the edges.?>
     <div class="row">
-      <!-- TITLE / LOGO and DESCRIPTION -->
+      <?php // TITLE / LOGO and DESCRIPTION  ?>
 			<hgroup class="columns eight">
 
 				<h1 id="site-title">
@@ -47,7 +47,7 @@
 				</h4>
 			</hgroup>
 
-      <!-- Search Bar region -->
+      <?php // Search Bar region  ?>
       <div class="columns four"><?php print render($page['header']) ?></div>
         <?php if ($main_menu): ?>
         <p id="skip-link" class="hide-on-desktops"><em><a href="#access">Skip to Navigation</a></em> &darr;</p>
@@ -57,31 +57,31 @@
 		</div>
     </div><?php //This just gives a little room on the edges.?>
 
-      <!--MAIN MENU NAVBAR -->
+      <?php //MAIN MENU NAVBAR  ?>
       <?php if ($page['nav']): ?>
     		<nav id="access" role="navigation" class="row">
             	<?php print render($page['nav']); ?>
         </nav>
       <?php endif; ?>
 
-  </header> <!-- /.section, /#header -->
+  </header> <?php // /.section, /#header  ?>
 
 
-  <!-- Main Row -->
+  <?php // Main Row  ?>
   <div id="main" class="row">
   	<div class="columns eleven centered"><?php //This just gives a little room on the edges.?>
   	
     	
-    	<!-- Left Sidebar -->
+    	<?php // Left Sidebar  ?>
       <?php if ($page['sidebar_first']): ?>
         <aside id="sidebar-left" class="columns <?php print $lsb_size; ?>" role="complementary">
           <?php print render($page['sidebar_first']); ?>
-       </aside> <!-- /.section, /#sidebar-first -->
+       </aside> <?php // /.section, /#sidebar-first  ?>
       <?php endif; ?>
     
     
     
-      <!-- Content Region -->
+      <?php // Content Region  ?>
       <div id="content" class="columns <?php print $content_size; ?>" role="main">
   	      <?php if ($page['highlighted']): ?>
   	        <?php print render($page['highlighted']); ?>
@@ -103,27 +103,27 @@
   	      print $feed_icons; ?>
   
        	<?php print render($page['content']);?>
-      </div> <!-- /.section, /#content -->
+      </div> <?php // /.section, /#content  ?>
   
     
-      <!-- Right Sidebar -->
+      <?php // Right Sidebar  ?>
       <?php if ($page['sidebar_second']): ?>
         <aside id="sidebar-right" class="columns <?php print $rsb_size; ?>" role="complementary">
           <?php print render($page['sidebar_second']); ?>
-        </aside> <!-- /.section, /#sidebar-second -->
+        </aside> <?php // /.section, /#sidebar-second  ?>
       <?php endif; ?>
   
-  	</div> <!--eleven centered columns for spacing -->
-  </div> <!-- /#main, /#main-wrapper -->
+  	</div> <?php //eleven centered columns for spacing  ?>
+  </div> <?php // /#main, /#main-wrapper  ?>
   
   
-  <!-- Footer -->
+  <?php // Footer  ?>
   <footer id="footer" role="contentinfo" class="row">
   	 <div class="eleven columns centered"><?php //This just gives a little room on the edges.?>
 	    <?php print render($page['footer']); ?>
 	   </div>
-  </footer> <!-- /.section, /#footer -->
+  </footer> <?php // /.section, /#footer  ?>
 
 
 
-</div> <!-- /#page, /#page-wrapper -->
+</div> <?php // /#page, /#page-wrapper  ?>

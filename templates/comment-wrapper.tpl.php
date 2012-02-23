@@ -48,6 +48,6 @@
     <section id="comment-form-wrapper">
       <h2 class="title"><?php print t('Add new comment'); ?></h2>
       <?php print render($content['comment_form']); ?>
-    </section> <!-- /#comment-form -->
+    </section> <?php // /#comment-form  ?>
   <?php endif; ?>
-</section> <!-- /#comments -->
+</section> <?php // /#comments  ?>

@@ -52,4 +52,4 @@
 
   <?php print $content ?>
 
-</<?php print $tag; ?>> <!-- /.block -->
+</<?php print $tag; ?>> <?php // /.block  ?>
