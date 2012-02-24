@@ -23,6 +23,40 @@ function cogito_preprocess_block(&$vars){
 
 }
 
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * @see bootstrap_html_head_alter().
+ */
+function cogito_preprocess_html(&$variables) {
+  global $theme;
+  global $base_path;
+  
+  $root_d7 = getcwd();
+  
+  // Cache path to theme for duration of this function:
+  $path_to_cogito = "/" . drupal_get_path('theme', 'cogito') . '/images/icons/';
+  
+  $path_to_child = "/" . drupal_get_path('theme', $theme) . '/images/icons/';
+  
+  $favicon =is_file( $path_to_child . 'favicon.ico' ) ? $path_to_child . 'favicon.ico' : $path_to_cogito . 'favicon.ico'; 
+
+  $icon57 = is_file( $root_d7 . $path_to_child . 'apple-57x57.png' ) ? $path_to_child . 'apple-57x57.png' : $path_to_cogito . 'apple-57x57.png'; 
+  $icon72 = is_file( $root_d7 . $path_to_child . 'apple-72x72.png' ) ? $path_to_child . 'apple-72x72.png' : $path_to_cogito . 'apple-72x72.png'; 
+  $icon114 =is_file( $root_d7 . $path_to_child . 'apple-114x114.png' )?$path_to_child . 'apple-114x114.png':$path_to_cogito . 'apple-114x114.png'; 
+  
+  drupal_add_html_head_link(array('rel' => 'apple-touch-icon', 'href' => $icon57));
+  drupal_add_html_head_link(array('rel' => 'apple-touch-icon', 'href' => $icon72));
+  drupal_add_html_head_link(array('rel' => 'apple-touch-icon', 'href' => $icon114));
+  
+  drupal_add_html_head_link(array('rel' => 'shortcut icon', 'href' => $favicon, 'type' => 'image/vnd.microsoft.icon'));
+
+
+} // bootstrap_preprocess_html()
+
+
+
 function cogito_preprocess_page(&$vars){
 
   /**

@@ -44,16 +44,11 @@
     <!-- Schema.org Description -->
     <meta itemprop="name" content="">
     <meta itemprop="description" content="">    
-    
-    <!-- Setting favicon and Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="<?php print path_to_theme();?>/images/misc/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="<?php print path_to_theme(); ?>/images/misc/favicon.ico">
 
     <!-- Apple Developer Options -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     
-    	
     <link rel="profile" href="http://gmpg.org/xfn/11" />
 
 	
@@ -66,6 +61,10 @@
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- IE6 needs some help -->
+    <!--[if lt IE 7]>
+      <link rel="stylesheet" type="text/css" href="<?php print base_path() . path_to_theme(); ?>/css/ie6.css" />
     <![endif]-->
   
 </head>
