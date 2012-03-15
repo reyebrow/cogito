@@ -24,6 +24,7 @@ stylesheets[all][] = system.theme.css
 ; JAVASCRIPT  ---------------------------------------------------------------
 
 scripts[] = foundation/javascripts/foundation.js
+scripts[] = foundation/javascripts/modernizr.foundation.js
 scripts[] = foundation/javascripts/app.js
 
 ; REGIONS --------------------------------------------------------------------
