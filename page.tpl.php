@@ -15,72 +15,21 @@
 
   <?php // Header  ?>
 	<header id="branding" role="banner" class="row">
-	
-	
-	 <div class="eleven columns centered"><?php //This just gives a little room on the edges.?>
-    <div class="row">
-      <?php // TITLE / LOGO and DESCRIPTION  ?>
-			<hgroup class="columns eight">
-
-				<h1 id="site-title">
-            <?php if ($logo): ?>
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-                <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-              </a>
-            <?php endif; ?>
-           <?php if ($site_name): ?>
-            <?php if ($title): ?>
-              <div id="site-name"><strong>
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-              </strong></div>
-            <?php else: /* Use h1 when the content title is empty */ ?>
-              <h1 id="site-name">
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-              </h1>
-            <?php endif;
-              endif;?>
-				</h1>
-				<h4 id="site-description" class="subheader">
-				  <?php if ($site_slogan): ?>
-            <div id="site-slogan"><?php print $site_slogan; ?></div>
-          <?php endif; ?>
-				</h4>
-			</hgroup>
-
-      <?php // Search Bar region  ?>
-      <div class="columns four"><?php print render($page['header']) ?></div>
-        <?php if ($main_menu): ?>
-        <p id="skip-link" class="hide-on-desktops"><em><a href="#access">Skip to Navigation</a></em> &darr;</p>
-        <?php endif; ?>
-			</div>
-			
-		</div>
-    </div><?php //This just gives a little room on the edges.?>
-
-      <?php //MAIN MENU NAVBAR  ?>
-      <?php if ($page['nav']): ?>
-    		<nav id="access" role="navigation" class="row">
-            	<?php print render($page['nav']); ?>
-        </nav>
-      <?php endif; ?>
-
+	   <?php include_once('header.tpl.php'); ?>
+	   <?php //render($header); ?>
   </header> <?php // /.section, /#header  ?>
 
+  <?php //MAIN MENU NAVBAR  ?>
+  <?php if ($page['nav']): ?>
+		<nav id="access" role="navigation" class="row">
+        	<?php print render($page['nav']); ?>
+    </nav>
+  <?php endif; ?>
 
   <?php // Main Row  ?>
   <div id="main" class="row">
   	<div class="columns eleven centered"><?php //This just gives a little room on the edges.?>
   	
-    	
-    	<?php // Left Sidebar  ?>
-      <?php if ($page['sidebar_first']): ?>
-        <aside id="sidebar-left" class="columns <?php print $lsb_size; ?>" role="complementary">
-          <?php print render($page['sidebar_first']); ?>
-       </aside> <?php // /.section, /#sidebar-first  ?>
-      <?php endif; ?>
-    
-    
-    
       <?php // Content Region  ?>
       <div id="content" class="columns <?php print $content_size; ?>" role="main">
   	      <?php if ($page['highlighted']): ?>
@@ -104,7 +53,13 @@
   
        	<?php print render($page['content']);?>
       </div> <?php // /.section, /#content  ?>
-  
+
+    	<?php // Left Sidebar  ?>
+      <?php if ($page['sidebar_first']): ?>
+        <aside id="sidebar-left" class="columns <?php print $lsb_size; ?>" role="complementary">
+          <?php print render($page['sidebar_first']); ?>
+       </aside> <?php // /.section, /#sidebar-first  ?>
+      <?php endif; ?>  
     
       <?php // Right Sidebar  ?>
       <?php if ($page['sidebar_second']): ?>

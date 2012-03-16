@@ -82,25 +82,25 @@ function cogito_preprocess_page(&$vars){
   
   switch ($cols) {
     case "2col_rsb":
-    	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_rsb_right'));
+    	$vars['rsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_rsb_right'));
     	$vars['lsb_size'] = "";
-    	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_rsb_content'));
+    	$vars['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_rsb_content'));
     	break;
     case "2col_lsb":
     	$vars['rsb_size'] = "";
-    	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_lsb_left'));
-    	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('two_columns_lsb_content'));
+    	$vars['lsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_left')) . "pull-" . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_content'));
+    	$vars['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_content')) . "push-" . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_left'));
     	break;
     case "1col":
     	$vars['rsb_size'] = "";
     	$vars['lsb_size'] = "";
-    	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('one_column_content')) . " centered";
+    	$vars['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('one_column_content')) . " centered";
     	break;
     //four is a nice small number that will still show something      
     default:
-    	$vars['rsb_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_right'));
-    	$vars['lsb_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_left'));
-    	$vars['content_size'] = cogito_foundation_sizer(theme_get_setting('three_columns_content'));
+    	$vars['rsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('three_columns_right'));
+    	$vars['lsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('three_columns_left')) . "pull-" . cogito_foundation_sizer(theme_get_setting('three_columns_content'));;
+    	$vars['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('three_columns_content')) . "push-" . cogito_foundation_sizer(theme_get_setting('three_columns_left'));;
     	break;
   }
   
