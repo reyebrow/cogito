@@ -12,14 +12,12 @@
 
 <div id="page" class="hfeed container" role="main">
 
-
   <?php // Header  ?>
 	<header id="branding" role="banner" class="row">
-	   <?php include_once('header.tpl.php'); ?>
-	   <?php //render($header); ?>
-  </header> <?php // /.section, /#header  ?>
+	   <?php print render($page['header']); ?>
+  </header>
 
-  <?php //MAIN MENU NAVBAR  ?>
+  <?php //Navbar Menu ?>
   <?php if ($page['nav']): ?>
 		<nav id="access" role="navigation" class="row">
         	<?php print render($page['nav']); ?>
@@ -78,7 +76,5 @@
 	    <?php print render($page['footer']); ?>
 	   </div>
   </footer> <?php // /.section, /#footer  ?>
-
-
 
 </div> <?php // /#page, /#page-wrapper  ?>

@@ -23,6 +23,24 @@ function cogito_preprocess_block(&$vars){
 
 }
 
+function cogito_preprocess_region(&$variables){
+  //Since we're rendering the logo etc inside the header region we will need to pass some
+  //variables to it 
+  if ($variables['region'] == "header") {
+    $variables['base_path']         = base_path();
+    $variables['front_page']        = url();
+    $variables['feed_icons']        = drupal_get_feeds();
+    $variables['language']          = $GLOBALS['language'];
+    $variables['language']->dir     = $GLOBALS['language']->direction ? 'rtl' : 'ltr';
+    $variables['logo']              = theme_get_setting('logo');
+    $variables['main_menu']         = theme_get_setting('toggle_main_menu') ? menu_main_menu() : array();
+    $variables['secondary_menu']    = theme_get_setting('toggle_secondary_menu') ? menu_secondary_menu() : array();
+    $variables['action_links']      = menu_local_actions();
+    $variables['site_name']         = (theme_get_setting('toggle_name') ? filter_xss_admin(variable_get('site_name', 'Drupal')) : '');
+    $variables['site_slogan']       = (theme_get_setting('toggle_slogan') ? filter_xss_admin(variable_get('site_slogan', '')) : '');
+    $variables['tabs']              = menu_local_tabs();
+  }
+}
 
 /**
  * Implements hook_preprocess_html().
