@@ -36,10 +36,10 @@
  * @see template_preprocess()
  * @see template_preprocess_page()
  * @see template_process()
- */ ?>
+ */  ?>
  
  
-<?php // TITLE / LOGO and DESCRIPTION  ?>
+<?php // TITLE / LOGO and DESCRIPTION (DESKTOP) ?>
 <hgroup id="header-wrapper" class="row hide-on-phones">    
   <?php if ($logo): ?>
     <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo" class="columns two">
@@ -66,10 +66,10 @@
       <?php endif; //if ($site_slogan) ?>
       </div>
       <div id="header-region" class="columns four">
-        <?php // Actual Header Region Here ?>
-        <?php if ($content){
-                    print $content;
-              }
+        <?php // Actual Header Block Region Here ?>
+        <?php if ($page['header']){
+             print render($page['header']);
+          }
         ?>
       </div>
     </div> 

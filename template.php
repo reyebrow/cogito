@@ -23,23 +23,39 @@ function cogito_preprocess_block(&$vars){
 
 }
 
+
+/**
+ * Implements hook_theme().
+ */
+function cogito_theme($existing, $type, $theme, $path) {
+  return array(
+    'cogito_header' => array(
+     'template' => 'header',
+      'path' => $path . '/templates',
+      'render element' => 'elements',
+      'pattern' => 'header__',
+      'preprocess functions' => array(
+        'template_preprocess', 
+        'template_preprocess_header',
+        'cogito_preprocess',
+        'cogito_preprocess_header',
+      ),
+      'process functions' => array(
+        'template_process', 
+        'template_process_header',
+        'cogito_process',
+        'cogito_process_header'
+      ),
+    ),
+  );
+}
+
+
+
+
 function cogito_preprocess_region(&$variables){
   //Since we're rendering the logo etc inside the header region we will need to pass some
   //variables to it 
-  if ($variables['region'] == "header") {
-    $variables['base_path']         = base_path();
-    $variables['front_page']        = url();
-    $variables['feed_icons']        = drupal_get_feeds();
-    $variables['language']          = $GLOBALS['language'];
-    $variables['language']->dir     = $GLOBALS['language']->direction ? 'rtl' : 'ltr';
-    $variables['logo']              = theme_get_setting('logo');
-    $variables['main_menu']         = theme_get_setting('toggle_main_menu') ? menu_main_menu() : array();
-    $variables['secondary_menu']    = theme_get_setting('toggle_secondary_menu') ? menu_secondary_menu() : array();
-    $variables['action_links']      = menu_local_actions();
-    $variables['site_name']         = (theme_get_setting('toggle_name') ? filter_xss_admin(variable_get('site_name', 'Drupal')) : '');
-    $variables['site_slogan']       = (theme_get_setting('toggle_slogan') ? filter_xss_admin(variable_get('site_slogan', '')) : '');
-    $variables['tabs']              = menu_local_tabs();
-  }
 }
 
 /**
@@ -52,6 +68,12 @@ function cogito_preprocess_html(&$variables) {
   global $base_path;
   
   $root_d7 = getcwd();
+  
+
+    $variables['page']['header'] = $variables['page']['footer'];
+    $variables['page']['header']['#region'] = 'header';
+
+
   
   // Cache path to theme for duration of this function:
   $path_to_cogito = "/" . drupal_get_path('theme', 'cogito') . '/images/icons/';
@@ -78,9 +100,14 @@ function cogito_preprocess_html(&$variables) {
 function cogito_preprocess_page(&$vars){
 
   /**
+   * The header gets defined in header.tpl.php and needs access to some information
+   */
+   $vars['cogito_header'] = theme('cogito_header', $vars);
+
+  /**
    * WE need to do a little work to figure out the widths of things
    */
-   $page = &$vars['page'];
+  $page = &$vars['page'];
   
   if ($page['sidebar_second'] && $page['sidebar_first']){
   	$cols = "3col";
