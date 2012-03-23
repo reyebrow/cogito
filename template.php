@@ -19,7 +19,7 @@ function cogito_html_head_alter(&$head_elements) {
 }
 
 
-function cogito_preprocess_block(&$vars){
+function cogito_preprocess_block(&$variables){
 
 }
 
@@ -31,21 +31,7 @@ function cogito_theme($existing, $type, $theme, $path) {
   return array(
     'cogito_header' => array(
      'template' => 'header',
-      'path' => $path . '/templates',
-      'render element' => 'elements',
-      'pattern' => 'header__',
-      'preprocess functions' => array(
-        'template_preprocess', 
-        'template_preprocess_header',
-        'cogito_preprocess',
-        'cogito_preprocess_header',
-      ),
-      'process functions' => array(
-        'template_process', 
-        'template_process_header',
-        'cogito_process',
-        'cogito_process_header'
-      ),
+     'render element' => 'cogito_header',
     ),
   );
 }
@@ -69,15 +55,8 @@ function cogito_preprocess_html(&$variables) {
   
   $root_d7 = getcwd();
   
-
-    $variables['page']['header'] = $variables['page']['footer'];
-    $variables['page']['header']['#region'] = 'header';
-
-
-  
   // Cache path to theme for duration of this function:
   $path_to_cogito = "/" . drupal_get_path('theme', 'cogito') . '/images/icons/';
-  
   $path_to_child = "/" . drupal_get_path('theme', $theme) . '/images/icons/';
   
   $favicon =is_file( $path_to_child . 'favicon.ico' ) ? $path_to_child . 'favicon.ico' : $path_to_cogito . 'favicon.ico'; 
@@ -97,17 +76,19 @@ function cogito_preprocess_html(&$variables) {
 
 
 
-function cogito_preprocess_page(&$vars){
+function cogito_preprocess_page(&$variables){
 
-  /**
-   * The header gets defined in header.tpl.php and needs access to some information
-   */
-   $vars['cogito_header'] = theme('cogito_header', $vars);
+  $path_to_cogito = "/" . drupal_get_path('theme', 'cogito');
+  $path_to_child = "/" . drupal_get_path('theme', $theme);
+
+  if ( !isset( $variables['logo'] ) || empty( $variables['logo'] ) || !is_file( $root_d7 . $path_to_child . '/images/logo.png' ) ) {
+     $variables['logo'] = $root_d7 . $path_to_cogito . '/images/logo.png';
+  }
 
   /**
    * WE need to do a little work to figure out the widths of things
    */
-  $page = &$vars['page'];
+  $page = &$variables['page'];
   
   if ($page['sidebar_second'] && $page['sidebar_first']){
   	$cols = "3col";
@@ -127,29 +108,34 @@ function cogito_preprocess_page(&$vars){
   
   switch ($cols) {
     case "2col_rsb":
-    	$vars['rsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_rsb_right'));
-    	$vars['lsb_size'] = "";
-    	$vars['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_rsb_content'));
+    	$variables['rsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_rsb_right'));
+    	$variables['lsb_size'] = "";
+    	$variables['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_rsb_content'));
     	break;
     case "2col_lsb":
-    	$vars['rsb_size'] = "";
-    	$vars['lsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_left')) . "pull-" . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_content'));
-    	$vars['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_content')) . "push-" . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_left'));
+    	$variables['rsb_size'] = "";
+    	$variables['lsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_left')) . "pull-" . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_content'));
+    	$variables['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_content')) . "push-" . cogito_foundation_sizer(theme_get_setting('two_columns_lsb_left'));
     	break;
     case "1col":
-    	$vars['rsb_size'] = "";
-    	$vars['lsb_size'] = "";
-    	$vars['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('one_column_content')) . " centered";
+    	$variables['rsb_size'] = "";
+    	$variables['lsb_size'] = "";
+    	$variables['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('one_column_content')) . " centered";
     	break;
     //four is a nice small number that will still show something      
     default:
-    	$vars['rsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('three_columns_right'));
-    	$vars['lsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('three_columns_left')) . "pull-" . cogito_foundation_sizer(theme_get_setting('three_columns_content'));;
-    	$vars['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('three_columns_content')) . "push-" . cogito_foundation_sizer(theme_get_setting('three_columns_left'));;
+    	$variables['rsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('three_columns_right'));
+    	$variables['lsb_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('three_columns_left')) . "pull-" . cogito_foundation_sizer(theme_get_setting('three_columns_content'));;
+    	$variables['content_size'] = "columns " . cogito_foundation_sizer(theme_get_setting('three_columns_content')) . "push-" . cogito_foundation_sizer(theme_get_setting('three_columns_left'));;
     	break;
   }
   
 
+  /**
+   * The header gets defined in header.tpl.php and needs access to some information
+   */
+   $variables['cogito_header'] = theme('cogito_header', $variables);  
+  
 }
 
 
@@ -157,14 +143,14 @@ function cogito_preprocess_page(&$vars){
  * Changes the search form to use the HTML5 "search" input attribute
  */
 
-function cogito_preprocess_search_block_form(&$vars) {
+function cogito_preprocess_search_block_form(&$variables) {
 
-  $vars['search_form'] = str_replace('type="text"', 'type="search"', $vars['search_form']);
-  $vars['search_form'] = str_replace('class="form-submit"', 'class="form-submit button black"', $vars['search_form']);
+  $variables['search_form'] = str_replace('type="text"', 'type="search"', $variables['search_form']);
+  $variables['search_form'] = str_replace('class="form-submit"', 'class="form-submit button black"', $variables['search_form']);
 }
 
-function cogito_preprocess_menu_link(&$vars) {
-	//$vars['element']['#attributes']['class'][] = "button black";
+function cogito_preprocess_menu_link(&$variables) {
+	//$variables['element']['#attributes']['class'][] = "button black";
 }
 	
 /**
@@ -176,8 +162,8 @@ function cogito_preprocess_menu_link(&$vars) {
  * @return
  *   A string containing the breadcrumb output.
  */
-function cogito_breadcrumb($vars) {
-  $breadcrumb = $vars['breadcrumb'];
+function cogito_breadcrumb($variables) {
+  $breadcrumb = $variables['breadcrumb'];
   // Determine if we are to display the breadcrumb.
   $show_breadcrumb = theme_get_setting('breadcrumb_display');
   if ($show_breadcrumb == 'yes') {

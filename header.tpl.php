@@ -36,7 +36,7 @@
  * @see template_preprocess()
  * @see template_preprocess_page()
  * @see template_process()
- */  ?>
+ */ ?>
  
  
 <?php // TITLE / LOGO and DESCRIPTION (DESKTOP) ?>
@@ -50,7 +50,7 @@
     <div class="row">
       <div id="site-name-description-wrap" class="columns eight">        
       <?php if ($site_name): ?>
-        <?php if ($title): ?>
+        <?php if (isset($title)): ?>
           <div id="site-name"><strong>
             <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
           </strong></div>
