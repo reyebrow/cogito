@@ -77,12 +77,13 @@ function cogito_preprocess_html(&$variables) {
 
 
 function cogito_preprocess_page(&$variables){
-
+  $root_d7 = getcwd();
+  global $base_path;
   $path_to_cogito = "/" . drupal_get_path('theme', 'cogito');
   $path_to_child = "/" . drupal_get_path('theme', $theme);
 
   if ( !isset( $variables['logo'] ) || empty( $variables['logo'] ) || !is_file( $root_d7 . $path_to_child . '/images/logo.png' ) ) {
-     $variables['logo'] = $root_d7 . $path_to_cogito . '/images/logo.png';
+     $variables['logo'] = $base_path . $path_to_cogito . '/images/logo.png';
   }
 
   /**
