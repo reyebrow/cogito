@@ -59,7 +59,7 @@
   	<div class="columns eleven centered"><?php //This just gives a little room on the edges.?>
   	
       <?php // Content Region  ?>
-      <div id="content" class="columns <?php print $content_size; ?>" role="main">
+      <div id="content" class="<?php print $content_size; ?>" role="main">
   	      <?php if ($page['highlighted']): ?>
   	        <?php print render($page['highlighted']); ?>
   	      <?php endif; 
@@ -84,14 +84,14 @@
 
     	<?php // Left Sidebar  ?>
       <?php if ($page['sidebar_first']): ?>
-        <aside id="sidebar-left" class="columns <?php print $lsb_size; ?>" role="complementary">
+        <aside id="sidebar-left" class="<?php print $lsb_size; ?>" role="complementary">
           <?php print render($page['sidebar_first']); ?>
        </aside> <?php // /.section, /#sidebar-first  ?>
       <?php endif; ?>  
     
       <?php // Right Sidebar  ?>
       <?php if ($page['sidebar_second']): ?>
-        <aside id="sidebar-right" class="columns <?php print $rsb_size; ?>" role="complementary">
+        <aside id="sidebar-right" class="<?php print $rsb_size; ?>" role="complementary">
           <?php print render($page['sidebar_second']); ?>
         </aside> <?php // /.section, /#sidebar-second  ?>
       <?php endif; ?>
