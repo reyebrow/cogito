@@ -81,7 +81,7 @@
 <hgroup id="header-wrapper" class="row show-on-phones">    
       <div id="site-name-description-wrap" class="columns twelve">        
       <?php if ($site_name): ?>
-        <?php if ($title): ?>
+        <?php if (isset($title)): ?>
           <div id="site-name"><strong>
             <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
           </strong></div>
