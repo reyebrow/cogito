@@ -13,9 +13,21 @@
  * Changes the default meta content-type tag to the shorter HTML5 version
  */
 function cogito_html_head_alter(&$head_elements) {
+  global $theme; 
   $head_elements['system_meta_content_type']['#attributes'] = array(
     'charset' => 'utf-8'
   );
+
+  //Throw an Error if foundation is not found.
+  if (!is_file( getcwd() . "/" . drupal_get_path('theme', 'cogito') . '/foundation/stylesheets/foundation.css' ) ) {
+    drupal_set_message("Foundation not found. You must install it before this theme can work. Please see the Cogito README file.", 'error', TRUE);
+  }
+  
+  //Throw a warning if Cogito Base theme is enabled.
+  if ( $theme == 'cogito' ) {
+    drupal_set_message("Cogito is not meant to be run as an actual theme. Please consult README.txt in order to get your child theme up and running. It's REALLY easy!!", 'status', TRUE);
+  }
+    
 }
 
 
