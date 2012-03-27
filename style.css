@@ -118,13 +118,9 @@ body.admin-menu { position: static!important; }
 
 
 /* -----------------------------------------
-   Foundation-specific presentation CSS
+   Footer
 ----------------------------------------- */
 
-body { padding-bottom: 60px; }
-.row { max-width: 1200px; }
-
-/* Footer */
 footer.row {
   border-top: solid 1px #e6e6e6;
   padding-top: 20px; }
@@ -142,9 +138,4 @@ footer.row a {
   color: #222222; }
 footer.row a:hover {
   text-decoration: underline; }
-  
-
-
-.row.display { background: #f4f4f4; margin-bottom: 10px; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
-.row.display .column, .row.display .columns { background: #e7e7e7; font-size: 11px; text-indent: 3px; padding-top: 6px; padding-bottom: 6px; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
-
+ 
