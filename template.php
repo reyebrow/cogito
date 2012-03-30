@@ -91,12 +91,22 @@ function cogito_preprocess_html(&$variables) {
 function cogito_preprocess_page(&$variables){
   $root_d7 = getcwd();
   global $base_path;
+  global $theme;
   $path_to_cogito = "/" . drupal_get_path('theme', 'cogito');
   $path_to_child = "/" . drupal_get_path('theme', $theme);
 
-  if ( !isset( $variables['logo'] ) || empty( $variables['logo'] ) || !is_file( $root_d7 . $path_to_child . '/images/logo.png' ) ) {
-     $variables['logo'] = $base_path . $path_to_cogito . '/images/logo.png';
+  //If it's not a user uploaded logo and it's not in the child root. look in the /images folder
+  $logo = &$variables['logo'];
+  if ($logo == url(drupal_get_path('theme', $theme) . "/logo.png", array('absolute'=>TRUE))) {
+
+    if ( !is_file( $root_d7 . "/" . $path_to_child . "/logo.png") && 
+          is_file( $root_d7 . "/" . $path_to_child . "/images/logo.png") ){
+
+      $logo = url(drupal_get_path('theme', $theme) . "/images/logo.png");
+ 
+    }
   }
+
 
   /**
    * WE need to do a little work to figure out the widths of things
