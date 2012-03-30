@@ -1,3 +1,9 @@
+<h1>WARNING: This branch (and repo) is no longer being actively maintained</h1>
+
+If you want the latest version of Cogito you need to get it on drupal.org
+
+<a href="http://drupal.org/sandbox/raychaser/1494826">http://drupal.org/sandbox/raychaser/1494826</a>
+
 Cogito is a theme based on the HTML5 Boilerplate and using Foundation for its
 grid layouts and CSS styling. Originally it was based on Boron but it has since
 been modified beyond recognition and about 90% of the boron code has been 
